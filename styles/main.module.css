@@ -1,0 +1,12 @@
+.main_container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.main_contein {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}

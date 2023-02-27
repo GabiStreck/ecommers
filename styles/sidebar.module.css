@@ -1,0 +1,5 @@
+.sidebar_container {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
