@@ -20,7 +20,7 @@
 .navigation_link_selected {
     text-decoration: none;
     font-weight: 600;
-    color: rgb(17, 127, 253);
+    color: var(--main-bg-color);
 }
 
 .actions_container {

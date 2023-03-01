@@ -1,5 +1,17 @@
 .sidebar_container {
     display: flex;
     flex-direction: column;
-    min-width: 150px;
+    min-width: 200px;
+}
+
+.logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.filters_list {
+    margin-top: 10px;
 }

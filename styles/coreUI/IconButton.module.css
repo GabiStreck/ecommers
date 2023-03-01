@@ -7,6 +7,6 @@
 }
 
 .icon_button:hover {
-    background-color: rgba(255, 49, 49, 0.062);
-    color: red;
+    background-color: rgba(var(--main-bg-color-rgb), 0.062);
+    color: var(--main-bg-color);
 }

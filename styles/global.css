@@ -4,6 +4,15 @@ body {
     margin: 0;
 }
 
+:root {
+    --main-bg-color: #FF3131;
+    --main-bg-color-rgb: 255, 49, 49;
+    --text-secondary-color: #999999;
+    --text-secondary-color-rgb: 153, 153, 153;
+    --text-title: #787878;
+    --text-title-rgb: 120, 120, 120;
+}
+
 @font-face {
     font-family: 'Public Sans';
     src: url('../public/fonts/PublicSans-Variable.woff2') format('woff2 supports variations'),
