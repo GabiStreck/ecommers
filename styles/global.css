@@ -7,6 +7,7 @@ body {
 :root {
     --main-bg-color: #FF3131;
     --main-bg-color-rgb: 255, 49, 49;
+    --main-bg-color-light: #fc7979;
     --text-secondary-color: #999999;
     --text-secondary-color-rgb: 153, 153, 153;
     --text-title: #787878;

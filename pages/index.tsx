@@ -1,7 +1,9 @@
 
+import Divider from "@/components/coreUI/Divider";
 import Header from "@/components/header";
 import SideBar from "@/components/sideBar";
-import styles from '../styles/main.module.css';
+import FilterBar from "@/components/filter/FilterBar";
+import styles from '../styles/homePage.module.css';
 
 export default function Home() {
     return (
@@ -9,8 +11,10 @@ export default function Home() {
             <SideBar />
             <div className={styles.main_contein}>
                 <Header />
-                <div>
-                    Products
+                <Divider />
+                <div className={styles.recommended_section}>
+                    <h2>Recommended</h2>
+                    <FilterBar filters={[{ name: 'Nike' }, { name: 'Adidas' }, { name: 'Puma' }, { name: 'Vans' }, { name: 'Reebook' }]} />
                 </div>
             </div>
         </main>

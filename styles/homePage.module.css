@@ -10,3 +10,9 @@
     width: 100%;
     gap: 10px;
 }
+
+.recommended_section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
