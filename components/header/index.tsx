@@ -5,6 +5,7 @@ import Search from "../search";
 import IconButton from "../coreUI/IconButton";
 import { HeartIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
 import Avatar from "../coreUI/Avatar";
+
 const NAV_LINKS = ['Home', 'Sale', 'Women', 'Man', 'Kids']
 
 function Header() {
@@ -15,7 +16,7 @@ function Header() {
                 {NAV_LINKS.map(item => {
                     const path = item == 'Home' ? '/' : `/${item.toLowerCase()}`
                     return (
-                        <Link className={router.pathname == path ? styles.navigation_link_selected : styles.navigation_link} href={path}>
+                        <Link key={item} className={router.pathname == path ? styles.navigation_link_selected : styles.navigation_link} href={path}>
                             {item}
                         </Link>
                     )
