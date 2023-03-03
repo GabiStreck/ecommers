@@ -2,9 +2,12 @@
     display: flex;
     gap: 10px;
     padding: 10px;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .main_contein {
+    padding: 0 15px;
     display: flex;
     flex-direction: column;
     width: 100%;

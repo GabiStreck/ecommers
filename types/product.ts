@@ -3,12 +3,25 @@ export type Product = {
     title: string
     rating: number
     price: number
-    sugestedPrice: number
-    stock: number
-    image: string
-    color: string
+    image: Image
+    color: Color
     genre: string
-    trademark: string
-    type: string
-    discount: number
+    trademark: TradeMark
+    category: Category
+}
+
+type Image = {
+    url: string
+}
+
+type TradeMark = {
+    url: string
+}
+
+type Category = {
+    url: string
+}
+
+type Color = {
+    href: string
 }
