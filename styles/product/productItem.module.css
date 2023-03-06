@@ -3,7 +3,6 @@
     flex-direction: column;
     gap: 0.625rem;
     position: relative;
-    max-width: 14rem;
     overflow: hidden;
     cursor: pointer;
     border-radius: 10px;

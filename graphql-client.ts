@@ -1,3 +1,6 @@
 import { GraphQLClient } from "graphql-request"
 
-export const client = new GraphQLClient('https://api-sa-east-1.hygraph.com/v2/cler779ar137x01t946qp6xt8/master', { headers: {} })
+const GRAPHQL_API = typeof window === 'undefined' ? process.env.GRAPHQL_API
+    : process.env.NEXT_PUBLIC_GRAPHQL_API
+/* @ts-ignore */
+export const client = new GraphQLClient(GRAPHQL_API, { headers: {} })

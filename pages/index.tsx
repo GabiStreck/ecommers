@@ -4,7 +4,7 @@ import Header from "@/components/header";
 import SideBar from "@/components/sideBar";
 import FilterBar from "@/components/filter/FilterBar";
 import styles from '../styles/homePage.module.css';
-import ProductList from "@/components/product/ProductList";
+import Products from "@/components/product/Products";
 
 export default function Home() {
     return (
@@ -16,7 +16,7 @@ export default function Home() {
                 <div className={styles.recommended_section}>
                     <h2>Recommended</h2>
                     <FilterBar filters={[{ name: 'Nike' }, { name: 'Adidas' }, { name: 'Puma' }, { name: 'Vans' }, { name: 'Reebook' }]} />
-                    <ProductList />
+                    <Products />
                 </div>
             </section>
         </main>
