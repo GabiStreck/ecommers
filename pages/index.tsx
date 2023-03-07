@@ -15,7 +15,9 @@ export default function Home() {
                 <Divider />
                 <div className={styles.recommended_section}>
                     <h2>Recommended</h2>
-                    <FilterBar filters={[{ name: 'Nike' }, { name: 'Adidas' }, { name: 'Puma' }, { name: 'Vans' }, { name: 'Reebook' }]} />
+
+                    <FilterBar />
+
                     <Products />
                 </div>
             </section>

@@ -23,12 +23,13 @@
     width: 90%;
     display: flex;
     object-fit: contain;
+    transform: scale(0.8);
     margin: auto;
     transition: transform ease-in 200ms;
 }
 
 .productItem_container:hover>img {
-    transform: scale(1.15)
+    transform: scale(1.05)
 }
 
 .productItem_detail {

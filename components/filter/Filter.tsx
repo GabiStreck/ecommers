@@ -6,11 +6,15 @@ interface Props {
     title: string
     filters: any[]
     children?: React.ReactNode,
-    multiselect?: boolean
+    multiselect?: boolean,
+    loading?: boolean
 }
 
 
-const Filter: React.FC<Props> = ({ title, filters, multiselect, children }) => {
+const Filter: React.FC<Props> = ({ title, filters, multiselect, children, loading }) => {
+    if (loading) {
+        return <div>loading..</div>
+    }
     return (
         <form className={styles.filter_container}>
             <h1 className={styles.filter_title}>{title}</h1>

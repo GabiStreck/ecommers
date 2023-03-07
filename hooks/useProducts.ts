@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { client } from "@/graphql-client";
-import { GET_ALL_PRODUCT } from "@/queries/product";
-import { Product } from "@/types/product";
 import useInfiniteScroll from "./useInfiniteScroll";
+import { GET_PRODUCTS } from "@/queries/product";
+import { Product } from "@/types/product";
+import { PER_PAGE } from "@/constants";
 
 type QueryResult = {
     products: Product[];
 };
-
-const PER_PAGE = 10
 
 const useProducts = (limit = PER_PAGE) => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -18,19 +17,23 @@ const useProducts = (limit = PER_PAGE) => {
     const { lastProductElementRef, isFetching } = useInfiniteScroll(fetchProducts);
 
     async function fetchProducts() {
-        const offset = products.length === 0 ? skip : skip + limit;
-        const { products: prodResponse } = await client.request<QueryResult>(
-            GET_ALL_PRODUCT,
-            {
-                first: limit,
-                skip: offset,
+        try {
+            const offset = products.length === 0 ? skip : skip + limit;
+            const { products: prodResponse } = await client.request<QueryResult>(
+                GET_PRODUCTS,
+                {
+                    first: limit,
+                    skip: offset,
+                }
+            );
+            if (prodResponse.length < limit) {
+                setEndOfList(true);
             }
-        );
-        if (prodResponse.length < limit) {
-            setEndOfList(true);
+            setProducts([...products, ...prodResponse]);
+            setSkip(offset);
+        } catch (error) {
+            console.log(error);
         }
-        setProducts([...products, ...prodResponse]);
-        setSkip(offset);
     }
 
     useEffect(() => {

@@ -1,5 +1,6 @@
 .button,
-.button_active {
+.button_active,
+.button_text {
     padding: 8px 15px;
     font-size: 14px;
     font-weight: 600;
@@ -8,7 +9,6 @@
     border: 2px solid var(--text-secondary-color);
     border-radius: 8px;
     cursor: pointer;
-
 }
 
 .button:hover {
@@ -20,4 +20,13 @@
     background-color: var(--main-bg-color-light);
     color: white;
     border: none;
+}
+
+.button_text {
+    border: none;
+    padding: 0;
+}
+
+.button_text:hover {
+    color: var(--main-bg-color-light);
 }

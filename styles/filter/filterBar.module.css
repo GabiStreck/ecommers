@@ -2,4 +2,11 @@
     display: flex;
     gap: 10px;
     width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+}
+
+.filterbar_container::-webkit-scrollbar {
+    display: none;
 }

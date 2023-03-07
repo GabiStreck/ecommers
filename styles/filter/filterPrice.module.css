@@ -1,0 +1,28 @@
+.filterPrice_container {
+    display: flex;
+    gap: 5px;
+}
+
+.filterPrice_container>div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.filterPrice_input {
+    max-width: 40px;
+    border: 1px solid var(--text-secondary-color);
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.filterPrice_input :focus {
+    outline: none;
+}
+
+.filterPrice_text {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-title);
+}

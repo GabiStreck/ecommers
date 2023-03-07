@@ -10,18 +10,20 @@ export type Product = {
     category: Category
 }
 
-type Image = {
+export type Image = {
     url: string
 }
 
-type TradeMark = {
-    url: string
+export type TradeMark = {
+    id: string
+    name: string
 }
 
-type Category = {
-    url: string
+export type Category = {
+    id: string
+    name: string
 }
 
-type Color = {
+export type Color = {
     href: string
 }

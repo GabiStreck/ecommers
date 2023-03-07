@@ -14,6 +14,10 @@
     color: var(--text-title);
 }
 
+.radio_custom_label:hover {
+    color: var(--main-bg-color-light);
+}
+
 .radio_custom+.radio_custom_label:before {
     content: '';
     background: #fff;
@@ -32,8 +36,6 @@
 .radio_custom:checked+.radio_custom_label:before {
     background: rgba(var(--main-bg-color-rgb), .8);
 }
-
-
 
 .radio_custom:focus+.radio_custom_label {
     outline: none;

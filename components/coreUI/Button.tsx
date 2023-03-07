@@ -12,3 +12,10 @@ export const Button: React.FC<Props> = ({ label, onClick, active }) => {
         <button className={active ? styles.button_active : styles.button} onClick={onClick}>{label}</button>
     )
 }
+
+export const ButtonText: React.FC<Props> = ({ label, onClick }) => {
+    return (
+        <button className={styles.button_text} onClick={onClick}>{label}</button>
+    )
+}
+

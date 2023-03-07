@@ -10,8 +10,9 @@
     padding: 0 15px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: calc(100% - 230px);
     gap: 10px;
+    overflow-x: hidden;
 }
 
 .recommended_section {
