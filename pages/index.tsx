@@ -15,9 +15,7 @@ export default function Home() {
                 <Divider />
                 <div className={styles.recommended_section}>
                     <h2>Recommended</h2>
-
                     <FilterBar />
-
                     <Products />
                 </div>
             </section>

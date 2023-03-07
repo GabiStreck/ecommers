@@ -35,3 +35,10 @@ query Ratings {
   }
 }
 `
+
+export const GET_MAYOR_PRICE = gql`
+query Price {
+  products(orderBy: price_DESC, first: 1) {
+    price
+  }
+} `

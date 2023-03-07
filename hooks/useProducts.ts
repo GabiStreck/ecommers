@@ -13,7 +13,6 @@ const useProducts = (limit = PER_PAGE) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [skip, setSkip] = useState(0);
     const [endOfList, setEndOfList] = useState<boolean>(false);
-
     const { lastProductElementRef, isFetching } = useInfiniteScroll(fetchProducts);
 
     async function fetchProducts() {
