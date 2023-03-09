@@ -17,7 +17,7 @@ const Products = () => {
             {products?.map((product, index) => <>
                 <ProductItem
                     {...product}
-                    key={`product-${index}`}
+                    key={`product-${product.id ?? index}`}
                 />
                 {index === products.length - 1 && !endOfList ? (
                     <div ref={lastProductElementRef}>Loading...</div>

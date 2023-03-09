@@ -1,21 +1,18 @@
 
 import React from 'react'
 import { StarIcon, } from '@heroicons/react/24/solid'
-import FavIcon from '../coreUI/FavIcon'
-import styles from '@/styles/product/productItem.module.css'
-import CartButton from './CartButton'
 import { Product } from '@/types/product'
+import FavIcon from '../coreUI/FavIcon'
+import CartButton from './CartButton'
+import styles from '@/styles/product/productItem.module.css'
 
-const ProductItem: React.FC<Product> = ({
-    title,
-    rating,
-    price,
-    image
-}) => {
+
+const ProductItem: React.FC<Product> = (product) => {
+    const { title, rating, price, image } = product
     return (
         <article className={styles.productItem_container}>
             <div className={styles.productItem_fav}>
-                <FavIcon />
+                <FavIcon product={product} />
             </div>
             <img src={image.url} alt="prod" className={styles.productItem_image} />
             <div className={styles.productItem_detail}>
@@ -28,7 +25,7 @@ const ProductItem: React.FC<Product> = ({
                 <div className={styles.productItem_prices}><span>${(price - price * 0.10).toFixed(2)}</span>  ${price.toFixed(2)}</div>
             </div>
             <div className={styles.productItem_cart}>
-                <CartButton />
+                <CartButton product={product} />
             </div >
         </article>
     )

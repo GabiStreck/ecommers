@@ -1,16 +1,25 @@
+import useCart from '@/hooks/useCart'
+import { Product } from '@/types/product'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
-import { useCallback, useState } from 'react'
 import { IconButtonSolid } from '../coreUI/IconButton'
 
-const CartButton = () => {
-    const [addToCart, setAddToCart] = useState<boolean>(false)
+interface Props {
+    product: Product
+}
 
-    const handleOnChange = useCallback((): void => {
-        setAddToCart(prev => !prev)
-    }, [])
+const CartButton: React.FC<Props> = ({ product }) => {
+    const { handleAddToCart, handleRemoveFromCart, getCartItem } = useCart()
+    const isAddedInCart = !!(getCartItem(product.id))
+
     return (
-        <IconButtonSolid title="Add to Cart" variant={!addToCart ? 'outline' : 'solid'} action={handleOnChange}>
-            <ShoppingBagIcon width={20} height={18} color={addToCart ? 'white' : '#FF3131'} />
+        <IconButtonSolid
+            title={isAddedInCart ? "remove to Cart" : "Add to Cart"}
+            variant={isAddedInCart ? 'solid' : 'outline'}
+            action={() => isAddedInCart ?
+                handleRemoveFromCart(product.id) :
+                handleAddToCart({ product, quantity: 1 })}
+        >
+            <ShoppingBagIcon width={20} height={18} color={isAddedInCart ? 'white' : '#FF3131'} />
         </IconButtonSolid>
     )
 }

@@ -19,12 +19,12 @@ const Filter: React.FC<Props> = ({ title, filters, multiselect, children, loadin
         <form className={styles.filter_container}>
             <h1 className={styles.filter_title}>{title}</h1>
             <ul className={styles.filter_list}>
-                {filters?.map(filter => (
+                {filters?.map((filter, index) => (
                     <FilterItem
                         name={title.trim().toLowerCase()}
                         label={filter.name}
                         id={filter.id}
-                        key={filter.id}
+                        key={filter.id ?? `${title}-${index}-filterItem`}
                         type={multiselect ? 'checkbox' : 'radio'}
                     />
                 ))}
