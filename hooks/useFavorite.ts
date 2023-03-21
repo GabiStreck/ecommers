@@ -1,5 +1,6 @@
 import useFavoriteStore from '@/stores/useFavoriteStore';
 import { Product } from '@/types/product';
+import { useCallback, useState } from 'react';
 import { shallow } from 'zustand/shallow';
 
 const useFavorite = () => {
@@ -7,26 +8,25 @@ const useFavorite = () => {
         favorites,
         addToFavorite,
         removeFromFavorite,
-        getProductInFavorite
     } = useFavoriteStore(state => state, shallow)
 
-    const handleAddToFavorite = (product: Product) => {
+    const [isSelected, setIsSelected] = useState<boolean>(false)
+
+    const handleAddToFavorite = useCallback((product: Product) => {
         addToFavorite({ product: product });
-    };
+        setIsSelected(true)
+    }, [addToFavorite]);
 
-    const handleRemoveFromFavorite = (productId: string) => {
+    const handleRemoveFromFavorite = useCallback((productId: string) => {
         removeFromFavorite(productId);
-    };
-
-    const getFavoriteItem = (id: string) => {
-        return getProductInFavorite(id)
-    }
+        setIsSelected(false)
+    }, [removeFromFavorite]);
 
     return {
+        isSelected,
         favorites,
         handleAddToFavorite,
-        handleRemoveFromFavorite,
-        getFavoriteItem
+        handleRemoveFromFavorite
     }
 }
 

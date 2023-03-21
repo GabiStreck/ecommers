@@ -18,16 +18,6 @@ query Categories ($first: Int, $skip: Int){
 }
 `
 
-export const GET_COLORS = gql`
-query Colors($first: Int, $skip: Int) {
-    products(first: $first, skip: $skip) {
-    color {
-            css
-        }
-    }
-}
-`
-
 export const GET_RATINGS = gql`
 query Ratings {
   products(orderBy: rating_DESC, first: 100) {

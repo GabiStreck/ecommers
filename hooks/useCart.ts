@@ -1,10 +1,12 @@
 
 import useCartStore from '@/stores/useCartStore';
 import { CartItem } from '@/types/cart'
+import { useCallback, useMemo, useState } from 'react';
 import { shallow } from 'zustand/shallow'
 
 const useCart = () => {
-    const { cart,
+    const {
+        cart,
         addToCart,
         removeFromCart,
         getProductInCart,
@@ -13,21 +15,21 @@ const useCart = () => {
         (state) => state
         , shallow)
 
-    const handleAddToCart = ({ product, quantity }: CartItem) => {
+    const handleAddToCart = useCallback(({ product, quantity }: CartItem) => {
         addToCart({ product: product, quantity });
-    };
+    }, [addToCart]);
 
-    const handleRemoveFromCart = (productId: string) => {
+    const handleRemoveFromCart = useCallback((productId: string) => {
         removeFromCart(productId);
-    };
+    }, [removeFromCart]);
 
-    const handleRemoveItemFromCart = (productId: string) => {
+    const handleRemoveItemFromCart = useCallback((productId: string) => {
         removeItemFromCart(productId);
-    };
+    }, [removeItemFromCart]);
 
-    const getCartItem = (id: string) => {
+    const getCartItem = useCallback((id: string) => {
         return getProductInCart(id);
-    }
+    }, [getProductInCart])
 
     return {
         cart,

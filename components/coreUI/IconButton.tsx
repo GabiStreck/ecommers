@@ -4,13 +4,13 @@ import styles from '@/styles/coreUI/IconButton.module.css'
 
 
 interface Props {
-    action?: () => any
+    action: (e: any) => any
     title?: string
     children?: React.ReactNode
     variant?: string
 }
 
-const IconButton: React.FC<Props> = ({ children, action, title }) => {
+export const IconButton: React.FC<Props> = ({ children, action, title }) => {
     return (
         <button
             className={styles.icon_button}

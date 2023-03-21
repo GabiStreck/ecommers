@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo, FC, useId } from 'react'
 import styles from '@/styles/filter/filteritem.module.css'
 
 interface Props {
@@ -10,17 +10,17 @@ interface Props {
     onSelected?: () => any
 }
 
-const FilterItem: React.FC<Props> = ({ type,
+const FilterItem: FC<Props> = memo(({ type,
     label,
     name,
-    id,
     checked,
     onSelected
 }) => {
+    const idInput = useId()
     return (
         <div className={styles.filteritem_container}>
             <input
-                id={`filter-${id}`}
+                id={idInput}
                 name={name}
                 type={type == 'radio' ? 'radio' : 'checkbox'}
                 className={styles.radio_custom}
@@ -28,12 +28,12 @@ const FilterItem: React.FC<Props> = ({ type,
                 onChange={onSelected}
             />
             <label
-                htmlFor={`filter-${id}`}
+                htmlFor={idInput}
                 className={styles.radio_custom_label} >
                 {label}
             </label>
         </div>
     )
-}
+}, (prevProps, nextProps) => prevProps.checked === nextProps.checked)
 
-export default FilterItem
+export default FilterItem;
