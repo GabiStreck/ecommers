@@ -7,7 +7,8 @@ interface Price {
 }
 
 interface Prices {
-    name: string
+    name: string,
+    values: number[]
 }
 
 interface QueryFilterResult {
@@ -28,10 +29,10 @@ const usePrices = () => {
             const value = Math.floor(priceResponse[0].price / 3 / 10) * 10
 
             let listPrices: Prices[] = [0, 1, 2].map(item => (
-                { name: `$${item * value} - $${value + value * item}` }
+                { name: `$${item * value} - $${value + value * item}`, values: [item * value, value + value * item] }
             ))
 
-            listPrices.push({ name: `Over $${priceResponse[0].price}` })
+            listPrices.push({ name: `Over $${priceResponse[0].price}`, values: [priceResponse[0].price] })
 
             setPrice(listPrices)
             setLoading(false)

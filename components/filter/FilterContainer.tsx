@@ -32,7 +32,7 @@ const FilterContainer: FC<Props> = ({
 
     return (
         <form className={styles.filter_container} ref={formRef}>
-            <div>
+            <div className={styles.title_container}>
                 <h1 className={styles.filter_title}>{title}</h1>
                 {showResetForm &&
                     <IconButton action={(e) => handleFormReset(e)} title='Remove filters'>

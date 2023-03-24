@@ -2,6 +2,7 @@
 export interface Filter {
     id: string;
     name: string;
+    values?: number[]
 }
 
 export interface FilterStore {

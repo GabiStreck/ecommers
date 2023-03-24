@@ -1,8 +1,8 @@
-
+import { useCallback, useMemo } from 'react';
+import { shallow } from 'zustand/shallow'
+import { FILTER_CATEGORY, FILTER_PRICE, FILTER_RATING, FILTER_TRADEMARK } from '@/constants';
 import useFilterStore from '@/stores/useFilterStore';
 import { AddToFilterPayload, Filter, removedToFilterPayload } from '@/types/filters'
-import { useCallback } from 'react';
-import { shallow } from 'zustand/shallow'
 
 const useFilters = () => {
     const {
@@ -32,12 +32,39 @@ const useFilters = () => {
             return clearFilter(typeFilter);
         }, [clearFilter])
 
+    const filterParams = useMemo((): any => {
+        const filtersArray = Array.from(filters, function (entry) {
+            return { key: entry[0], value: entry[1] };
+        });
+
+        let params = {}
+        filtersArray.forEach(({ key, value }) => {
+            let newEntry = {}
+            if ([FILTER_PRICE, FILTER_RATING].includes(key)) {
+                if (value[0]?.values?.length)
+                    newEntry = {
+                        [`${key}_gte`]: value[0].values[0],
+                        [`${key}_lte`]: value[0].values[1]
+                    }
+            } else if ([FILTER_CATEGORY, FILTER_TRADEMARK].includes(key)) {
+                newEntry = { [key]: { "id_in": value.map(item => item.id) } };
+            } else {
+                newEntry = {
+                    [key]: value[0].name
+                }
+            }
+            params = { ...params, ...newEntry }
+        })
+        return params
+    }, [filters])
+
     return {
         filters,
         handleAddToFilters,
         handleRemoveFromFilters,
         handleGetFilter,
-        handlerClearFilter
+        handlerClearFilter,
+        filterParams
     }
 }
 

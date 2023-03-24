@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import { client } from "@/graphql-client";
 import useInfiniteScroll from "./useInfiniteScroll";
 import { GET_PRODUCTS } from "@/queries/product";
 import { Product } from "@/types/product";
 import { PER_PAGE } from "@/constants";
+import useFilters from "./useFilters";
 
 type QueryResult = {
     products: Product[];
@@ -13,9 +14,10 @@ const useProducts = (limit = PER_PAGE) => {
     const [products, setProducts] = useState<Product[]>([]);
     const [skip, setSkip] = useState(0);
     const [endOfList, setEndOfList] = useState<boolean>(false);
-    const { lastProductElementRef, isFetching } = useInfiniteScroll(fetchProducts);
+    const { lastProductElementRef, isFetching } = useInfiniteScroll(getMoreProducts);
+    const { filterParams } = useFilters()
 
-    async function fetchProducts() {
+    async function getMoreProducts() {
         try {
             const offset = products.length === 0 ? skip : skip + limit;
             const { products: prodResponse } = await client.request<QueryResult>(
@@ -23,6 +25,7 @@ const useProducts = (limit = PER_PAGE) => {
                 {
                     first: limit,
                     skip: offset,
+                    filters: filterParams ?? {}
                 }
             );
             if (prodResponse.length < limit) {
@@ -35,9 +38,31 @@ const useProducts = (limit = PER_PAGE) => {
         }
     }
 
+    async function getProducts() {
+        try {
+            const offset = 0;
+            const { products: prodResponse } = await client.request<QueryResult>(
+                GET_PRODUCTS,
+                {
+                    first: limit,
+                    skip: offset,
+                    filters: filterParams ?? {}
+                }
+            );
+            if (prodResponse.length < limit) {
+                setEndOfList(true);
+            }
+            setProducts(prodResponse);
+            setSkip(offset);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     useEffect(() => {
-        fetchProducts();
-    }, []);
+        getProducts()
+    }, [filterParams]);
 
     return {
         products,

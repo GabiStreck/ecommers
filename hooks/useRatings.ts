@@ -8,6 +8,7 @@ interface RatingsResponse {
 
 interface Ratings {
     name: string,
+    values: number[]
     id: number
 }
 
@@ -27,7 +28,7 @@ const useRatings = () => {
                 GET_RATINGS, {}
             )
             const ratingList = new Set(ratingResponse.map(item => (Math.floor(item.rating))))
-            setRatings(Array.from(ratingList).map(item => ({ name: `${item} star`, id: item })))
+            setRatings(Array.from(ratingList).map(item => ({ name: `${item} star`, id: item, values: [item, item + 1] })))
             setLoading(false)
         } catch (error) {
             setError(error)
