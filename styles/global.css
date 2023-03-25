@@ -4,6 +4,56 @@ body {
     margin: 0;
 }
 
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    max-height: 50px;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, .3);
+    background-color: var(--text-secondary-color);
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 9999;
+}
+
+.loader {
+    border: 6px solid var(--text-secondary-color);
+    border-top: 6px solid var(--main-bg-color);
+    border-radius: 50%;
+    width: 3.75rem;
+    height: 3.75rem;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 :root {
     --main-bg-color: #FF3131;
     --main-bg-color-rgb: 255, 49, 49;

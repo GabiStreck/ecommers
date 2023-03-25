@@ -5,6 +5,7 @@ import { Product } from '@/types/product'
 import FavIcon from '../coreUI/FavIcon'
 import CartButton from './CartButton'
 import styles from '@/styles/product/productItem.module.css'
+import Image from 'next/image'
 
 
 const ProductItem: React.FC<Product> = (product) => {
@@ -14,7 +15,13 @@ const ProductItem: React.FC<Product> = (product) => {
             <div className={styles.productItem_fav}>
                 <FavIcon product={product} />
             </div>
-            <img src={image.url} alt="prod" className={styles.productItem_image} />
+            <Image
+                src={image.url}
+                alt="prod"
+                className={styles.productItem_image}
+                loading="lazy"
+                width={150}
+                height={200} />
             <div className={styles.productItem_detail}>
                 <h1 className={styles.productItem_title}>
                     {title}

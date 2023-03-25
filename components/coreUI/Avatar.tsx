@@ -1,15 +1,16 @@
 import React from 'react'
 import styles from '@/styles/coreUI/avatar.module.css'
+import Image from 'next/image'
 
 interface Props {
-    src?: string
-    alt?: string
+    src: string
+    alt: string
 }
 
 const Avatar: React.FC<Props> = ({ src, alt }) => {
     return (
         <div>
-            <img src={src} alt={alt} className={styles.avatar} />
+            <Image src={src} alt={alt} className={styles.avatar} loading="lazy" width={32} height={32} />
         </div>
     )
 }
