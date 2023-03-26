@@ -9,7 +9,7 @@ interface QueryFilterResult {
 
 const useTradeMarks = () => {
     const [tradeMarks, setTradeMarks] = useState<TradeMark[]>()
-    const [loading, setLoading] = useState<boolean>()
+    const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<any>()
 
     async function getAllTradeMarks() {
@@ -19,6 +19,7 @@ const useTradeMarks = () => {
                 GET_TRADEMARKS, {}
             )
             setTradeMarks(tradeMarkResponse)
+            setLoading(false)
         } catch (error) {
             setError(error)
         }

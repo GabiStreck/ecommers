@@ -1,8 +1,14 @@
 
 import useProducts from "@/hooks/useProducts";
 import React from "react";
-import ProductItem from "./ProductItem";
 import styles from '@/styles/product/products.module.css'
+import dynamic from "next/dynamic";
+import { LoadingProducts } from "../loading/LoadingProducts";
+
+const ProductItem = dynamic(() => import("./ProductItem"), {
+    loading: () => <LoadingProducts quantity={10} />,
+    ssr: true,
+});
 
 const Products = () => {
     const {
@@ -20,11 +26,13 @@ const Products = () => {
                     key={`product-${product.id ?? index}`}
                 />
                 {index === products.length - 1 && !endOfList ? (
-                    <div ref={lastProductElementRef}>Loading...</div>
+                    <div ref={lastProductElementRef}></div>
                 ) : null}
             </>
             )}
-            {(isFetching && !endOfList) && <div>Loading...</div>}
+            {(isFetching && !endOfList) && (
+                <LoadingProducts quantity={10} />
+            )}
         </div>
     );
 };

@@ -1,8 +1,14 @@
-import React, { useImperativeHandle, useRef } from 'react'
-import FilterItem from './FilterItem'
+import React from 'react'
 import useFilters from '@/hooks/useFilters'
 import { Filter } from '@/types/filters'
 import FilterContainer from './FilterContainer'
+import { LoadingFilterItemList, LoadingFilterList } from '../loading/LoadingFilters'
+import dynamic from 'next/dynamic'
+
+const FilterItem = dynamic(() => import("./FilterItem"), {
+    loading: () => <LoadingFilterItemList />,
+    ssr: true,
+});
 
 interface Props {
     title: string;
@@ -44,10 +50,11 @@ const Filter: React.FC<Props> = ({
         }
     }
 
+    if (loading && filters?.length === 0) return <LoadingFilterList />
+
     return (
         <FilterContainer
             title={title}
-            loading={loading}
             showResetForm={!!selectedFilter}
             typeFilter={typeFilter}
         >
@@ -62,6 +69,7 @@ const Filter: React.FC<Props> = ({
                     onSelected={() => handleSelectedFilter(filter)}
                 />
             ))}
+            {loading && <LoadingFilterItemList />}
             <div>
                 {children}
             </div>

@@ -7,7 +7,6 @@ import CartButton from './CartButton'
 import styles from '@/styles/product/productItem.module.css'
 import Image from 'next/image'
 
-
 const ProductItem: React.FC<Product> = (product) => {
     const { title, rating, price, image } = product
     return (

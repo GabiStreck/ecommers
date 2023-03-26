@@ -8,6 +8,7 @@ import FilterContainer from './FilterContainer';
 import useFilters from '@/hooks/useFilters';
 import { Filter } from '@/types/filters';
 import { FILTER_PRICE } from '@/constants';
+import { LoadingFilterItemList, LoadingFilterList } from '../loading/LoadingFilters';
 
 const FilterPrice = () => {
     const [query, setQuery] = useState<string>('')
@@ -28,10 +29,11 @@ const FilterPrice = () => {
         handleAddToFilters({ filter: filterItem, typeFilter: FILTER_PRICE, onlyOne: true })
     }
 
+    if (loading && prices?.length === 0) return <LoadingFilterList />
+
     return (
         <FilterContainer
             title='Price'
-            loading={loading}
             showResetForm={!!selectedFilter}
             typeFilter={FILTER_PRICE}
         >
@@ -51,9 +53,11 @@ const FilterPrice = () => {
                     )}
                 />
             ))}
-            <div>
-                <FilterRangeOfPrice handleChangeQuery={handleChangeQuery} query={query} />
-            </div>
+            {loading ? <LoadingFilterItemList /> : (
+                <div>
+                    <FilterRangeOfPrice handleChangeQuery={handleChangeQuery} query={query} />
+                </div>
+            )}
         </FilterContainer>
     )
 }

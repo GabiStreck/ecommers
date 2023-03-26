@@ -7,7 +7,6 @@ import useFilters from '@/hooks/useFilters';
 interface Props {
     title: string;
     children?: ReactNode;
-    loading?: boolean;
     showResetForm?: boolean,
     typeFilter: string
 }
@@ -15,12 +14,9 @@ interface Props {
 const FilterContainer: FC<Props> = ({
     title,
     children,
-    loading,
     showResetForm,
     typeFilter
 }) => {
-    if (loading) return <div>loading..</div>
-
     const { handlerClearFilter } = useFilters()
 
     const formRef = useRef<HTMLFormElement>(null);

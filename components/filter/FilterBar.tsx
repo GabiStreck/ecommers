@@ -4,12 +4,12 @@ import { Button } from '../coreUI/Button'
 import styles from '@/styles/filter/filterBar.module.css'
 import useFilters from '@/hooks/useFilters'
 import { FILTER_TRADEMARK } from '@/constants'
-import { XMarkIcon } from '@heroicons/react/24/outline'
 import { TradeMark } from '@/types/product'
+import { LoadingFilterBarList } from '../loading/LoadingFilters'
 
 
 const FilterBar = () => {
-    const { tradeMarks } = useTradeMarks()
+    const { tradeMarks, loading } = useTradeMarks()
     const { handleAddToFilters, handleGetFilter, handlerClearFilter, handleRemoveFromFilters } = useFilters()
     const selectedList = handleGetFilter(FILTER_TRADEMARK)
 
@@ -28,6 +28,9 @@ const FilterBar = () => {
         }
 
     }
+
+    if (loading) return <LoadingFilterBarList quantity={8} />
+
     return (
         <div className={styles.filterbar_container}>
             <Button onClick={() => handlerClearFilter(FILTER_TRADEMARK)} label='All Products' active={!selectedList} />
