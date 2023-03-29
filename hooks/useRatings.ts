@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { client } from '@/graphql-client'
 import { GET_RATINGS } from '@/queries/filters';
+import { FILTER_RATING } from '@/constants';
+import useLocalStorage from './useLocalStorage';
 
 interface RatingsResponse {
     rating: number
@@ -17,18 +19,21 @@ interface QueryFilterResult {
 };
 
 const useRatings = () => {
-    const [ratings, setRatings] = useState<Ratings[]>([])
     const [loading, setLoading] = useState<boolean>()
     const [error, setError] = useState<any>()
+    const [ratingStore, setRatingStore] = useLocalStorage<Ratings[]>(FILTER_RATING, []);
 
     async function getRatings() {
         try {
             setLoading(true)
-            const { products: ratingResponse } = await client.request<QueryFilterResult>(
-                GET_RATINGS, {}
-            )
-            const ratingList = new Set(ratingResponse.map(item => (Math.floor(item.rating))))
-            setRatings(Array.from(ratingList).map(item => ({ name: `${item} star`, id: item, values: [item, item + 1] })))
+            if (!ratingStore?.length) {
+                const { products: ratingResponse } = await client.request<QueryFilterResult>(
+                    GET_RATINGS, {}
+                )
+                const ratingList = new Set(ratingResponse.map(item => (Math.floor(item.rating))))
+                const ratingData = Array.from(ratingList).map(item => ({ name: `${item} star`, id: item, values: [item, item + 1] }))
+                setRatingStore(ratingData)
+            }
             setLoading(false)
         } catch (error) {
             setError(error)
@@ -42,7 +47,7 @@ const useRatings = () => {
     return {
         error,
         loading,
-        ratings
+        ratings: ratingStore
     }
 }
 

@@ -2,35 +2,44 @@ import { useEffect, useState } from 'react'
 import { client } from '@/graphql-client'
 import { Category } from '@/types/product';
 import { GET_CATEGORIES } from '@/queries/filters';
-import { PER_PAGE_FILTER } from '@/constants';
+import { FILTER_CATEGORY, PER_PAGE_FILTER } from '@/constants';
+import useLocalStorage from './useLocalStorage';
 
 interface QueryFilterResult {
     categories: Category[];
 };
 
 const useCategories = (limit = PER_PAGE_FILTER) => {
-    const [categories, setCategories] = useState<Category[]>([])
     const [loading, setLoading] = useState<boolean>()
     const [error, setError] = useState<any>()
     const [skip, setSkip] = useState<number>(0);
     const [endOfList, setEndOfList] = useState<boolean>(false);
+    const [categoryStore, setCategoryStore] = useLocalStorage<Category[]>(FILTER_CATEGORY, []);
+
+    const getMoreCategories = async () => {
+        const offset = categoryStore?.length === 0 ? skip : skip + limit;
+        const { categories: categoriesResponse } = await client.request<QueryFilterResult>(
+            GET_CATEGORIES, {
+            first: limit,
+            skip: offset
+        })
+
+        if (categoriesResponse.length < limit) {
+            setEndOfList(true);
+        }
+
+        setSkip(offset);
+        setCategoryStore([...categoryStore ?? [], ...categoriesResponse])
+    }
 
     async function getCategories() {
         try {
             setLoading(true)
-            const offset = categories.length === 0 ? skip : skip + limit;
-            const { categories: categoriesResponse } = await client.request<QueryFilterResult>(
-                GET_CATEGORIES, {
-                first: limit,
-                skip: offset
+            if (!categoryStore?.length) {
+                await getMoreCategories()
+            } else {
+                if (categoryStore.length % limit !== 0) setEndOfList(true)
             }
-            )
-            if (categoriesResponse.length < limit) {
-                setEndOfList(true);
-            }
-
-            setSkip(offset);
-            setCategories([...categories, ...categoriesResponse])
             setLoading(false)
         } catch (error) {
             setError(error)
@@ -44,9 +53,9 @@ const useCategories = (limit = PER_PAGE_FILTER) => {
     return {
         error,
         loading,
-        categories,
+        categories: categoryStore,
         endOfList,
-        getCategories
+        getMoreCategories
     }
 }
 

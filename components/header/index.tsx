@@ -30,7 +30,7 @@ function Header() {
                 <IconButton title="Cart">
                     <ShoppingBagIcon width={15} height={15} />
                 </IconButton>
-                <Avatar src="https://picsum.photos/30" />
+                <Avatar src="https://picsum.photos/30" alt="logo" />
             </div>
         </header>
     )

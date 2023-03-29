@@ -7,7 +7,7 @@ const FilterCategory = () => {
     const {
         categories,
         loading,
-        getCategories,
+        getMoreCategories,
         endOfList
     } = useCategories()
 
@@ -17,7 +17,7 @@ const FilterCategory = () => {
         filters={categories}
         typeFilter={FILTER_CATEGORY}
     >
-        {!endOfList && <ButtonText label='Load more' onClick={getCategories} />}
+        {!endOfList && <ButtonText label='Load more' onClick={getMoreCategories} />}
     </Filter>
 }
 

@@ -4,6 +4,7 @@ import { Filter } from '@/types/filters'
 import FilterContainer from './FilterContainer'
 import { LoadingFilterItemList, LoadingFilterList } from '../loading/LoadingFilters'
 import dynamic from 'next/dynamic'
+import { StoredValue } from '@/hooks/useLocalStorage'
 
 const FilterItem = dynamic(() => import("./FilterItem"), {
     loading: () => <LoadingFilterItemList />,
@@ -12,7 +13,7 @@ const FilterItem = dynamic(() => import("./FilterItem"), {
 
 interface Props {
     title: string;
-    filters: any[];
+    filters: StoredValue<any[]>;
     children?: React.ReactNode;
     multiselect?: boolean;
     loading?: boolean;

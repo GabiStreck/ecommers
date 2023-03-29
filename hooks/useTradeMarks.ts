@@ -2,23 +2,28 @@ import { useEffect, useState } from 'react'
 import { client } from '@/graphql-client'
 import { TradeMark } from '@/types/product';
 import { GET_TRADEMARKS } from '@/queries/filters';
+import { FILTER_TRADEMARK } from '@/constants';
+import useLocalStorage from './useLocalStorage';
 
 interface QueryFilterResult {
     tradeMarks: TradeMark[];
 };
 
 const useTradeMarks = () => {
-    const [tradeMarks, setTradeMarks] = useState<TradeMark[]>()
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<any>()
-
+    const [tradeMarkStore, setTradeMarkStore] = useLocalStorage<TradeMark[]>(FILTER_TRADEMARK, []);
     async function getAllTradeMarks() {
         try {
             setLoading(true)
-            const { tradeMarks: tradeMarkResponse } = await client.request<QueryFilterResult>(
-                GET_TRADEMARKS, {}
-            )
-            setTradeMarks(tradeMarkResponse)
+            if (!tradeMarkStore?.length) {
+                const { tradeMarks: tradeMarkResponse } = await client.request<QueryFilterResult>(
+                    GET_TRADEMARKS, {}
+                )
+
+                setTradeMarkStore(tradeMarkResponse)
+            }
+
             setLoading(false)
         } catch (error) {
             setError(error)
@@ -32,7 +37,7 @@ const useTradeMarks = () => {
     return {
         error,
         loading,
-        tradeMarks
+        tradeMarks: tradeMarkStore
     }
 }
 

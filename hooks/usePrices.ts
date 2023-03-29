@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { client } from '@/graphql-client'
 import { GET_MAYOR_PRICE } from '@/queries/filters';
+import useLocalStorage from './useLocalStorage';
+import { FILTER_PRICE } from '@/constants';
 
 interface Price {
     price: number
@@ -16,25 +18,27 @@ interface QueryFilterResult {
 };
 
 const usePrices = () => {
-    const [prices, setPrice] = useState<Prices[]>([])
     const [loading, setLoading] = useState<boolean>()
     const [error, setError] = useState<any>()
+    const [priceStore, setPriceStore] = useLocalStorage<Prices[]>(FILTER_PRICE, []);
 
     async function getPrice() {
         try {
             setLoading(true)
-            const { products: priceResponse } = await client.request<QueryFilterResult>(
-                GET_MAYOR_PRICE, {}
-            )
-            const value = Math.floor(priceResponse[0].price / 3 / 10) * 10
+            if (!priceStore?.length) {
+                const { products: priceResponse } = await client.request<QueryFilterResult>(
+                    GET_MAYOR_PRICE, {}
+                )
+                const value = Math.floor(priceResponse[0].price / 3 / 10) * 10
 
-            let listPrices: Prices[] = [0, 1, 2].map(item => (
-                { name: `$${item * value} - $${value + value * item}`, values: [item * value, value + value * item] }
-            ))
+                let listPrices: Prices[] = [0, 1, 2].map(item => (
+                    { name: `$${item * value} - $${value + value * item}`, values: [item * value, value + value * item] }
+                ))
 
-            listPrices.push({ name: `Over $${priceResponse[0].price}`, values: [priceResponse[0].price] })
+                listPrices.push({ name: `Over $${priceResponse[0].price}`, values: [priceResponse[0].price] })
 
-            setPrice(listPrices)
+                setPriceStore(listPrices)
+            }
             setLoading(false)
         } catch (error) {
             setError(error)
@@ -48,7 +52,7 @@ const usePrices = () => {
     return {
         error,
         loading,
-        prices
+        prices: priceStore
     }
 }
 
