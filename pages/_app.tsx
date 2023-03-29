@@ -16,9 +16,11 @@ function MyApp({
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="manifest" href="/manifest.json" />
-                <link rel="apple-touch-icon" href="/icons/icon-96x96.png" />
                 <meta name="theme-color" content="#ffffff" />
+                <link rel="manifest" href="/manifest.json" />
+                <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+                <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
                 <title>Feet on Fire</title>
             </Head>
             {loading ? (

@@ -10,6 +10,10 @@ const ProductItem = dynamic(() => import("./ProductItem"), {
     ssr: true,
 });
 
+const ProductsEmpyState = dynamic(() => import("./ProductsEmpyState"), {
+    ssr: true,
+});
+
 const Products = () => {
     const {
         products,
@@ -17,7 +21,7 @@ const Products = () => {
         isFetching,
         endOfList
     } = useProducts()
-
+    if (!isFetching && (!products || products.length === 0)) return <ProductsEmpyState />
     return (
         <div className={styles.products_container}>
             {products?.map((product, index) => <>
@@ -33,6 +37,7 @@ const Products = () => {
             {(isFetching && !endOfList) && (
                 <LoadingProducts quantity={10} />
             )}
+
         </div>
     );
 };
