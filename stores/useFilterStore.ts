@@ -1,9 +1,11 @@
 
 import { create } from 'zustand';
-import { FilterStore, AddToFilterPayload, Filter, removedToFilterPayload } from '@/types/filters';
+import { FilterStore, AddToFilterPayload, Filter, RemovedToFilterPayload } from '@/types/filters';
 
 const useFilterStore = create<FilterStore>((set, get) => ({
     filters: new Map(),
+    search: '',
+    genre: '',
     addToFilter: ({ filter, typeFilter, onlyOne }: AddToFilterPayload): void => {
         const { filters } = get()
         let draft = structuredClone(filters)
@@ -22,7 +24,17 @@ const useFilterStore = create<FilterStore>((set, get) => ({
             filters: draft
         }));
     },
-    removeFromFilter: ({ id, typeFilter }: removedToFilterPayload): void => {
+    addToSearch: (query: string): void => {
+        set(() => ({
+            search: query
+        }));
+    },
+    addToGenre: (genre: string): void => {
+        set(() => ({
+            genre: genre
+        }));
+    },
+    removeFromFilter: ({ id, typeFilter }: RemovedToFilterPayload): void => {
         const { filters } = get()
         let draft = structuredClone(filters)
 

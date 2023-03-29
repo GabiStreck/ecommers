@@ -5,3 +5,6 @@ export const FILTER_TRADEMARK = 'tradeMark'
 export const FILTER_CATEGORY = 'category'
 export const FILTER_PRICE = 'price'
 export const FILTER_RATING = 'rating'
+
+export const FILTER_SEARCH = 'title_contains'
+export const FILTER_GENRE = 'genre'

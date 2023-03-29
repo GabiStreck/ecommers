@@ -19,9 +19,14 @@ const Products = () => {
         products,
         lastProductElementRef,
         isFetching,
+        loading,
         endOfList
     } = useProducts()
-    if (!isFetching && (!products || products.length === 0)) return <ProductsEmpyState />
+
+    if (!loading && (!products || products.length === 0)) {
+        return <ProductsEmpyState />
+    }
+
     return (
         <div className={styles.products_container}>
             {products?.map((product, index) => <>
@@ -37,7 +42,6 @@ const Products = () => {
             {(isFetching && !endOfList) && (
                 <LoadingProducts quantity={10} />
             )}
-
         </div>
     );
 };

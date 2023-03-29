@@ -1,24 +1,29 @@
 import { useCallback, useMemo } from 'react';
 import { shallow } from 'zustand/shallow'
-import { FILTER_CATEGORY, FILTER_PRICE, FILTER_RATING, FILTER_TRADEMARK } from '@/constants';
+import { FILTER_CATEGORY, FILTER_GENRE, FILTER_PRICE, FILTER_RATING, FILTER_SEARCH, FILTER_TRADEMARK } from '@/constants';
 import useFilterStore from '@/stores/useFilterStore';
-import { AddToFilterPayload, Filter, removedToFilterPayload } from '@/types/filters'
+import { AddToFilterPayload, Filter, RemovedToFilterPayload } from '@/types/filters'
 
 const useFilters = () => {
     const {
         filters,
+        search,
+        genre,
         addToFilter,
         removeFromFilter,
         clearFilter,
-        getFilter
+        getFilter,
+        addToGenre,
+        addToSearch,
     } = useFilterStore((state) => state, shallow)
 
-    const handleAddToFilters = useCallback(({ filter, typeFilter, onlyOne }: AddToFilterPayload) => {
-        addToFilter({ filter: filter, typeFilter: typeFilter, onlyOne: onlyOne });
-    }, [addToFilter])
+    const handleAddToFilters = useCallback(
+        ({ filter, typeFilter, onlyOne }: AddToFilterPayload) => {
+            addToFilter({ filter: filter, typeFilter: typeFilter, onlyOne: onlyOne });
+        }, [addToFilter])
 
     const handleRemoveFromFilters = useCallback(
-        ({ id, typeFilter }: removedToFilterPayload) => {
+        ({ id, typeFilter }: RemovedToFilterPayload) => {
             removeFromFilter({ id: id, typeFilter: typeFilter });
         }, [removeFromFilter]);
 
@@ -29,8 +34,18 @@ const useFilters = () => {
 
     const handlerClearFilter = useCallback(
         (typeFilter: string): void => {
-            return clearFilter(typeFilter);
+            clearFilter(typeFilter);
         }, [clearFilter])
+
+    const handlerSearch = useCallback(
+        (query: string): void => {
+            addToSearch(query);
+        }, [addToSearch])
+
+    const handlerGenre = useCallback(
+        (genre: string): void => {
+            addToGenre(genre);
+        }, [addToGenre])
 
     const filterParams = useMemo((): any => {
         const filtersArray = Array.from(filters, function (entry) {
@@ -55,8 +70,15 @@ const useFilters = () => {
             }
             params = { ...params, ...newEntry }
         })
+        if (search) {
+            params = { ...params, [FILTER_SEARCH]: search }
+        }
+
+        if (genre) {
+            params = { ...params, [FILTER_GENRE]: genre }
+        }
         return params
-    }, [filters])
+    }, [filters, search, genre])
 
     return {
         filters,
@@ -64,7 +86,9 @@ const useFilters = () => {
         handleRemoveFromFilters,
         handleGetFilter,
         handlerClearFilter,
-        filterParams
+        filterParams,
+        handlerSearch,
+        handlerGenre
     }
 }
 

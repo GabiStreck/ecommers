@@ -7,8 +7,12 @@ export interface Filter {
 
 export interface FilterStore {
     filters: Map<string, Filter[]>;
+    search: string;
+    genre: string;
     addToFilter: ({ filter, typeFilter }: AddToFilterPayload) => void;
-    removeFromFilter: ({ id, typeFilter }: removedToFilterPayload) => void;
+    addToSearch: (query: string) => void;
+    addToGenre: (genre: string) => void;
+    removeFromFilter: ({ id, typeFilter }: RemovedToFilterPayload) => void;
     clearFilter: (typeFilter: string) => void;
     getFilter: (typeFilter: string) => Filter[] | undefined;
 }
@@ -19,7 +23,7 @@ export interface AddToFilterPayload {
     onlyOne: boolean;
 }
 
-export interface removedToFilterPayload {
+export interface RemovedToFilterPayload {
     id: string;
     typeFilter: string
 }

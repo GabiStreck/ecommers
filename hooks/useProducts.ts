@@ -12,6 +12,7 @@ type QueryResult = {
 
 const useProducts = (limit = PER_PAGE) => {
     const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
     const [skip, setSkip] = useState(0);
     const [endOfList, setEndOfList] = useState<boolean>(false);
     const { lastProductElementRef, isFetching } = useInfiniteScroll(getMoreProducts);
@@ -40,6 +41,7 @@ const useProducts = (limit = PER_PAGE) => {
 
     async function getProducts() {
         try {
+            setLoading(true)
             const offset = 0;
             const { products: prodResponse } = await client.request<QueryResult>(
                 GET_PRODUCTS,
@@ -54,6 +56,7 @@ const useProducts = (limit = PER_PAGE) => {
             }
             setProducts(prodResponse);
             setSkip(offset);
+            setLoading(false)
         } catch (error) {
             console.log(error);
         }
@@ -68,7 +71,8 @@ const useProducts = (limit = PER_PAGE) => {
         products,
         lastProductElementRef,
         isFetching,
-        endOfList
+        endOfList,
+        loading
     }
 }
 
