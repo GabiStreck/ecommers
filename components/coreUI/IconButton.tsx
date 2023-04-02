@@ -1,18 +1,20 @@
 
-import React from 'react'
+import { RefObject, ReactNode, FC } from 'react'
 import styles from '@/styles/coreUI/IconButton.module.css'
 
 
 interface Props {
     action: (e: any) => any
     title?: string
-    children?: React.ReactNode
-    variant?: string
+    children?: ReactNode
+    variant?: string,
+    buttonRef?: RefObject<HTMLButtonElement>
 }
 
-export const IconButton: React.FC<Props> = ({ children, action, title }) => {
+export const IconButton: FC<Props> = ({ children, action, buttonRef = null, title }) => {
     return (
         <button
+            ref={buttonRef}
             className={styles.icon_button}
             title={title ?? ''}
             onClick={action}

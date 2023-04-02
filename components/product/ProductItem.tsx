@@ -28,7 +28,10 @@ const ProductItem: React.FC<Product> = (product) => {
                 <div className={styles.productItem_rating}>
                     <span>{rating}<StarIcon width={12} color="Goldenrod" /></span> 120 review
                 </div>
-                <div className={styles.productItem_prices}><span>${(price - price * 0.10).toFixed(2)}</span>  ${price.toFixed(2)}</div>
+                <div className={styles.productItem_prices}>
+                    <span>${price.toFixed(2)}
+                    </span>  ${(price - price * 0.10).toFixed(2)}
+                </div>
             </div>
             <div className={styles.productItem_cart}>
                 <CartButton product={product} />

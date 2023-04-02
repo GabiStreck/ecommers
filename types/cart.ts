@@ -10,7 +10,8 @@ export interface CartStore {
     addToCart: ({ product, quantity }: AddToCartPayload) => void;
     removeFromCart: (productId: string) => void;
     removeItemFromCart: (productId: string) => void;
-    getProductInCart: (productId: string) => CartItem | undefined
+    getProductInCart: (productId: string) => CartItem | undefined;
+    clearCart: () => void
 }
 
 export interface AddToCartPayload {

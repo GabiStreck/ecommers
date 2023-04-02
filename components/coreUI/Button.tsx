@@ -1,12 +1,12 @@
-import { ReactNode, FC } from 'react'
+import { ReactNode, FC, ButtonHTMLAttributes } from 'react'
 import styles from '@/styles/coreUI/button.module.css'
 
-interface Props {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
     label?: string;
     active?: boolean;
-    onClick: () => void;
+    onClick?: () => void;
     children?: ReactNode
-}
+};
 
 export const Button: FC<Props> = ({ label, onClick, active, children }) => {
     return (

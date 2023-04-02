@@ -1,0 +1,33 @@
+.popup {
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 10px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+    width: 440px;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.popup_close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    max-width: 100%;
+}
+
+.header_remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}

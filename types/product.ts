@@ -4,9 +4,9 @@ export type Product = {
     rating: number
     price: number
     image: Image
-    color: Color
+    color: Color[]
     genre: string
-    trademark: TradeMark
+    tradeMark: TradeMark
     category: Category
 }
 
@@ -25,5 +25,6 @@ export type Category = {
 }
 
 export type Color = {
-    href: string
+    hex: string,
+    css: string
 }

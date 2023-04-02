@@ -1,19 +1,28 @@
 
 import useCartStore from '@/stores/useCartStore';
 import { CartItem } from '@/types/cart'
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { shallow } from 'zustand/shallow'
+import useLocalStorage from './useLocalStorage';
+import { CART_STORE } from '@/constants';
 
 const useCart = () => {
     const {
         cart,
         addToCart,
+        clearCart,
         removeFromCart,
         getProductInCart,
         removeItemFromCart
     } = useCartStore(
         (state) => state
-        , shallow)
+        , shallow
+    )
+    const [cartStore, setCartStore] = useLocalStorage<CartItem[]>(CART_STORE, []);
+
+    useEffect(() => {
+        setCartStore(cart)
+    }, [cart])
 
     const handleAddToCart = useCallback(({ product, quantity }: CartItem) => {
         addToCart({ product: product, quantity });
@@ -31,11 +40,16 @@ const useCart = () => {
         return getProductInCart(id);
     }, [getProductInCart])
 
+    const handleClearCart = useCallback(() => {
+        return clearCart();
+    }, [clearCart])
+
     return {
-        cart,
+        cart: cartStore,
         handleRemoveItemFromCart,
         handleAddToCart,
         handleRemoveFromCart,
+        handleClearCart,
         getCartItem
     }
 }
