@@ -8,7 +8,7 @@
 
 .navigation_container {
     display: flex;
-    gap: 30px;
+    gap: 1.875rem;
 }
 
 .navigation_link {
@@ -25,5 +25,5 @@
 
 .actions_container {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
 }

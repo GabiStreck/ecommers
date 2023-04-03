@@ -6,7 +6,7 @@
 .radio_custom,
 .radio_custom_label {
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     cursor: pointer;
     align-items: center;
     justify-content: flex-start;
@@ -21,11 +21,11 @@
 .radio_custom+.radio_custom_label:before {
     content: '';
     background: #fff;
-    border: 2px solid #ddd;
-    width: 10px;
-    height: 10px;
-    padding: 2px;
-    margin-right: 5px;
+    border: 0.125rem solid #ddd;
+    width: 0.625rem;
+    height: 0.625rem;
+    padding: 0.125rem;
+    margin-right: 0.3125rem;
     text-align: center;
 }
 

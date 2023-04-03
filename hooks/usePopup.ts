@@ -24,6 +24,19 @@ export const usePopup = () => {
         handleResize()
     }, [isOpen])
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+                togglePopup();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
     const handleResize = () => {
         if (isOpen && buttonRef.current) {
             const positions = getPopupPosition(buttonRef.current)

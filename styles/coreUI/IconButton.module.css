@@ -3,12 +3,12 @@
 .icon_button_outline {
     background: none;
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    padding: 0.5rem;
 }
 
 .icon_button:hover {
@@ -20,12 +20,12 @@
     background: var(--main-bg-color-light);
     border-radius: 50%;
     color: white;
-    border: 2px solid var(--main-bg-color-light);
+    border: 0.125rem solid var(--main-bg-color-light);
     transition: background-color ease-out 200ms
 }
 
 .icon_button_outline {
-    border: 2px solid var(--main-bg-color-light);
+    border: 0.125rem solid var(--main-bg-color-light);
     border-radius: 50%;
     color: var(--main-bg-color-light);
 }
@@ -33,12 +33,12 @@
 .icon_button_solid:hover {
     background: var(--main-bg-color);
     border-radius: 50%;
-    border: 2px solid var(--main-bg-color);
+    border: 0.125rem solid var(--main-bg-color);
     border-radius: 50%;
     color: white;
 }
 
 .icon_button_outline:hover {
-    border: 2px solid var(--main-bg-color);
+    border: 0.125rem solid var(--main-bg-color);
     border-radius: 50%;
 }

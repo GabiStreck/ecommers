@@ -1,9 +1,9 @@
 
-import { memo, useCallback, FC } from 'react'
+import { memo, useCallback, FC, useMemo } from 'react'
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid'
 import { HeartIcon } from '@heroicons/react/24/outline'
 import useFavorite from '@/hooks/useFavorite'
-import IconButton from './IconButton'
+import IconButton from '../coreUI/IconButton'
 import { Product } from '@/types/product'
 
 interface Props {
@@ -11,7 +11,8 @@ interface Props {
 }
 
 const FavIcon: FC<Props> = memo(({ product }) => {
-    const { isSelected, handleAddToFavorite, handleRemoveFromFavorite } = useFavorite()
+    const { handleAddToFavorite, handleRemoveFromFavorite, getFavoriteItem } = useFavorite()
+    const isSelected = getFavoriteItem(product.id)
 
     const handleFavoriteSelected = useCallback((): void => {
         if (isSelected) return handleRemoveFromFavorite(product.id)

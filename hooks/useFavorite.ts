@@ -1,32 +1,46 @@
+import { FAVORITE_STORE } from '@/constants';
 import useFavoriteStore from '@/stores/useFavoriteStore';
 import { Product } from '@/types/product';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
+import useLocalStorage from './useLocalStorage';
 
 const useFavorite = () => {
     const {
         favorites,
         addToFavorite,
         removeFromFavorite,
+        clearFavorites,
+        getProductInFavorite
     } = useFavoriteStore(state => state, shallow)
+    const [favoriteStore, setFavoriteStore] = useLocalStorage<Product[]>(FAVORITE_STORE, []);
 
-    const [isSelected, setIsSelected] = useState<boolean>(false)
+    useEffect(() => {
+        setFavoriteStore(favorites)
+    }, [favorites])
 
     const handleAddToFavorite = useCallback((product: Product) => {
-        addToFavorite({ product: product });
-        setIsSelected(true)
+        addToFavorite({ product: product })
     }, [addToFavorite]);
 
     const handleRemoveFromFavorite = useCallback((productId: string) => {
-        removeFromFavorite(productId);
-        setIsSelected(false)
+        removeFromFavorite(productId)
     }, [removeFromFavorite]);
 
+    const handleClearFavorites = useCallback(() => {
+        clearFavorites()
+    }, [clearFavorites]);
+
+    const getFavoriteItem = useCallback((id: string) => {
+        return getProductInFavorite(id);
+    }, [getProductInFavorite])
+
     return {
-        isSelected,
-        favorites,
+        favorites: favoriteStore,
         handleAddToFavorite,
-        handleRemoveFromFavorite
+        handleRemoveFromFavorite,
+        handleClearFavorites,
+        getFavoriteItem
     }
 }
 

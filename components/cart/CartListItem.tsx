@@ -1,11 +1,11 @@
 import { Product } from "@/types/product"
-import Image from "next/image"
 import styles from '@/styles/cart.module.css'
 import { FC } from "react"
 import { BuildingStorefrontIcon, TagIcon, PlusIcon, MinusIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { StarIcon, TagIcon as TagSolidIcon } from "@heroicons/react/24/solid";
+import { TagIcon as TagSolidIcon } from "@heroicons/react/24/solid";
 import Tag from "../coreUI/Tag";
 import IconButton from "../coreUI/IconButton";
+import ProductDetailItem from "../product/ProductDetailItem";
 
 interface Props {
     product: Product;
@@ -25,42 +25,8 @@ const CartListItem: FC<Props> = (
     }) => {
     return (
         <li key={product.id} className={styles.cartListItem_container}>
-            <div className={styles.productInfo_container}>
-                <Image
-                    src={product.image.url}
-                    alt={product.title}
-                    className={styles.cart_image}
-                    width={60}
-                    height={40}
-                    loading="eager"
-                />
-                <div className={styles.productDetail_container}>
-                    <div className={styles.productTitle_container}>
-                        <h1 className={styles.product_title}>{product.title}</h1>
-                        <Tag color="#ffe09b" colorText="#b78108" borderRadius={10}>
-                            <StarIcon width={12} color="Goldenrod" /> {product.rating}
-                        </Tag>
-                    </div>
+            <ProductDetailItem product={product} />
 
-                    <div className={styles.productDescription_container}>
-                        <span className={styles.color_container}>
-                            Color: {product.color.map(color => (
-                                <div
-                                    style={{
-                                        width: 10,
-                                        height: 10,
-                                        backgroundColor: color.hex,
-                                        borderRadius: 20
-                                    }}
-                                />
-                            ))}
-                        </span>
-                        <span>
-                            {product.tradeMark.name || ''} / {product.category.name}
-                        </span>
-                    </div>
-                </div>
-            </div>
             <div className={styles.cartAmount_container}>
                 <div className={styles.tags_container}>
                     <Tag color="#bccefc" colorText="#3e7dd8" borderRadius={4}>
@@ -99,3 +65,4 @@ const CartListItem: FC<Props> = (
 
 
 export default CartListItem
+

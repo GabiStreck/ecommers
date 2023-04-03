@@ -1,6 +1,6 @@
 .filterbar_container {
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     width: 100%;
     overflow-y: hidden;
     overflow-x: scroll;

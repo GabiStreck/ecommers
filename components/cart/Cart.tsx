@@ -6,6 +6,7 @@ import styles from '@/styles/cart.module.css'
 import Divider from "../coreUI/Divider";
 import { useMemo } from "react";
 import { Button } from "../coreUI/Button";
+import PopupContein from "../coreUI/Popup/PopupContein";
 
 const Cart = () => {
     const {
@@ -31,22 +32,19 @@ const Cart = () => {
                 actionButton={handleClearCart}
             />
             <Divider spaceVertical={15} />
-            <div className={styles.cartList_container}>
-                <ul className={styles.cartList_list}>
-                    {cart?.map(cartItem => (
-                        <CartListItem
-                            {...cartItem}
-                            key={`cartItem-${cartItem.product.id}`}
-                            onAddToCart={() => handleAddToCart(cartItem)}
-                            onRemoveItemFromCart={() => handleRemoveItemFromCart(cartItem.product.id)}
-                            onRemoveAllItem={() => handleRemoveFromCart(cartItem.product.id)}
-                        />
-                    ))}
-                </ul>
-            </div>
+            <PopupContein>
+                {cart?.map(cartItem => (
+                    <CartListItem
+                        {...cartItem}
+                        key={`cartItem-${cartItem.product.id}`}
+                        onAddToCart={() => handleAddToCart(cartItem)}
+                        onRemoveItemFromCart={() => handleRemoveItemFromCart(cartItem.product.id)}
+                        onRemoveAllItem={() => handleRemoveFromCart(cartItem.product.id)}
+                    />
+                ))}
+            </PopupContein >
             {cart?.length ?
                 <>
-
                     <Divider spaceVertical={15} />
                     <div className={styles.totalAmount_container}>
                         <span>Total Amount:

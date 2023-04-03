@@ -7,6 +7,7 @@ export const GET_PRODUCTS = gql`
       title
       price
       rating
+      genre
       image {
         url
       }
@@ -31,6 +32,7 @@ export const GET_PRODUCT = gql`
       title
       price
       rating
+      genre
       image {
         url
       }

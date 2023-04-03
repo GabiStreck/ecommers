@@ -2,10 +2,10 @@ import Link from "next/link"
 import styles from '@/styles/header.module.css'
 import { useRouter } from "next/router";
 import Search from "../search";
-import IconButton from "../coreUI/IconButton";
-import { HeartIcon } from '@heroicons/react/24/outline'
+
 import Avatar from "../coreUI/Avatar";
 import CartPopup from "../cart/CartPopup";
+import FavoritePopup from "../favorite/FavoritePopup";
 
 const NAV_LINKS = ['Home', 'Sale', 'Women', 'Man', 'Kids']
 
@@ -25,9 +25,7 @@ function Header() {
             </nav>
             <div className={styles.actions_container}>
                 <Search />
-                <IconButton title="Favorite">
-                    <HeartIcon width={15} height={15} />
-                </IconButton>
+                <FavoritePopup />
                 <CartPopup />
                 <Avatar src="https://picsum.photos/30" alt="logo" />
             </div>
