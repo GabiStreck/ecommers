@@ -1,6 +1,6 @@
 // `next-pwa` config should be passed here
-const withPWA = require("next-pwa")({
-  dest: "public",
+const withPWA = require('next-pwa')({
+  dest: 'public',
   register: true,
   runtimeCaching: [
     {
@@ -33,7 +33,6 @@ const withPWA = require("next-pwa")({
         expiration: {
           maxEntries: 200,
         },
-        networkTimeoutSeconds: 5,
         cacheableResponse: {
           statuses: [0, 200],
         },
@@ -45,13 +44,14 @@ const withPWA = require("next-pwa")({
 // Use `withPWA` and pass general Next.js config
 module.exports = withPWA({
   reactStrictMode: true,
+  disable: process.env.NODE_ENV === 'development',
   webpack5: true,
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
     return config;
   },
   images: {
-    domains: ["picsum.photos", "media.graphassets.com"]
+    domains: ['picsum.photos', 'media.graphassets.com'],
   },
-  output: "standalone",
+  output: 'standalone',
 });

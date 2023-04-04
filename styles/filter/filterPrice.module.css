@@ -1,28 +1,28 @@
 .filterPrice_container {
-    display: flex;
-    gap: 0.3125rem;
+  display: flex;
+  gap: 0.3125rem;
 }
 
-.filterPrice_container>div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3125rem;
-    align-items: center;
+.filterPrice_container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+  align-items: center;
 }
 
 .filterPrice_input {
-    max-width: 2.5rem;
-    border: 0.0625rem solid var(--text-secondary-color);
-    border-radius: 0.5rem;
-    padding: 0.3125rem;
+  max-width: 2.5rem;
+  border: 0.0625rem solid var(--text-secondary-color);
+  border-radius: 0.5rem;
+  padding: 0.3125rem;
 }
 
 .filterPrice_input :focus {
-    outline: none;
+  outline: none;
 }
 
 .filterPrice_text {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-title);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-title);
 }

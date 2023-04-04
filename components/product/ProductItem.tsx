@@ -1,43 +1,47 @@
+import React from 'react';
+import { StarIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
-import React from 'react'
-import { StarIcon, } from '@heroicons/react/24/solid'
-import { Product } from '@/types/product'
-import FavIcon from '../favorite/FavIcon'
-import CartButton from './CartButton'
-import styles from '@/styles/product/productItem.module.css'
-import Image from 'next/image'
+import styles from '@/styles/product/productItem.module.css';
+import { Product } from '@/types/product';
+
+import FavIcon from '../favorite/FavIcon';
+
+import CartButton from './CartButton';
 
 const ProductItem: React.FC<Product> = (product) => {
-    const { title, rating, price, image } = product
-    return (
-        <article className={styles.productItem_container}>
-            <div className={styles.productItem_fav}>
-                <FavIcon product={product} />
-            </div>
-            <Image
-                src={image.url}
-                alt="prod"
-                className={styles.productItem_image}
-                loading="lazy"
-                width={150}
-                height={200} />
-            <div className={styles.productItem_detail}>
-                <h1 className={styles.productItem_title}>
-                    {title}
-                </h1>
-                <div className={styles.productItem_rating}>
-                    <span>{rating}<StarIcon width={12} color="Goldenrod" /></span> 120 review
-                </div>
-                <div className={styles.productItem_prices}>
-                    <span>${price.toFixed(2)}
-                    </span>  ${(price - price * 0.10).toFixed(2)}
-                </div>
-            </div>
-            <div className={styles.productItem_cart}>
-                <CartButton product={product} />
-            </div >
-        </article>
-    )
-}
+  const { title, rating, price, image } = product;
+  return (
+    <article className={styles.productItem_container}>
+      <div className={styles.productItem_fav}>
+        <FavIcon product={product} />
+      </div>
+      <Image
+        src={image.url}
+        alt="prod"
+        className={styles.productItem_image}
+        loading="lazy"
+        width={150}
+        height={200}
+      />
+      <div className={styles.productItem_detail}>
+        <h1 className={styles.productItem_title}>{title}</h1>
+        <div className={styles.productItem_rating}>
+          <span>
+            {rating}
+            <StarIcon width={12} color="Goldenrod" />
+          </span>{' '}
+          120 review
+        </div>
+        <div className={styles.productItem_prices}>
+          <span>${price.toFixed(2)}</span> ${(price - price * 0.1).toFixed(2)}
+        </div>
+      </div>
+      <div className={styles.productItem_cart}>
+        <CartButton product={product} />
+      </div>
+    </article>
+  );
+};
 
-export default ProductItem
+export default ProductItem;

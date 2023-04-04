@@ -1,91 +1,94 @@
 html,
 *,
 body {
-    margin: 0;
+  margin: 0;
 }
 
 *::-webkit-scrollbar-track {
-    border-radius: 0.625rem;
-    background-color: #f8f8f8;
+  border-radius: 0.625rem;
+  background-color: #f8f8f8;
 }
 
 *::-webkit-scrollbar {
-    width: 0.5rem;
-    background-color: #F5F5F5;
+  width: 0.5rem;
+  background-color: #f5f5f5;
 }
 
 *::-webkit-scrollbar-thumb {
-    border-radius: 0.625rem;
-    max-height: 1.875rem;
-    -webkit-box-shadow: inset 0 0 0.1875rem rgba(0, 0, 0, .3);
-    background-color: silver;
+  border-radius: 0.625rem;
+  max-height: 1.875rem;
+  -webkit-box-shadow: inset 0 0 0.1875rem rgba(0, 0, 0, 0.3);
+  background-color: silver;
 }
 
 body {
-    overflow-x: hidden;
-    max-width: 100vw;
-    position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
 }
 
 .loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9999;
 }
 
 .loader {
-    border: 0.375rem solid var(--text-secondary-color);
-    border-top: 0.375rem solid var(--main-bg-color);
-    border-radius: 50%;
-    width: 3.75rem;
-    height: 3.75rem;
-    animation: spin 0.6s linear infinite;
+  border: 0.375rem solid var(--text-secondary-color);
+  border-top: 0.375rem solid var(--main-bg-color);
+  border-radius: 50%;
+  width: 3.75rem;
+  height: 3.75rem;
+  animation: spin 0.6s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 :root {
-    --main-bg-color: #FF3131;
-    --main-bg-color-rgb: 255, 49, 49;
-    --main-bg-color-light: #fc7979;
-    --text-secondary-color: #999999;
-    --text-secondary-color-rgb: 153, 153, 153;
-    --text-title: #787878;
-    --text-title-rgb: 120, 120, 120;
+  --main-bg-color: #ff3131;
+  --main-bg-color-rgb: 255, 49, 49;
+  --main-bg-color-light: #fc7979;
+  --text-secondary-color: #999999;
+  --text-secondary-color-rgb: 153, 153, 153;
+  --text-title: #787878;
+  --text-title-rgb: 120, 120, 120;
 }
 
 @font-face {
-    font-family: 'Public Sans';
-    src: url('../public/fonts/PublicSans-Variable.woff2') format('woff2 supports variations'),
-        url('../public/fonts/PublicSans-Variable.woff2') format('woff2-variations');
-    font-weight: 100 900;
-    font-style: normal;
+  font-family: 'Public Sans';
+  src: url('../public/fonts/PublicSans-Variable.woff2')
+      format('woff2 supports variations'),
+    url('../public/fonts/PublicSans-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Public Sans';
-    src: url('../public/fonts/PublicSans-Variable-Italic.woff2') format('woff2 supports variations'),
-        url('../public/fonts/PublicSans-Variable-Italic.woff2') format('woff2-variations');
-    font-weight: 100 900;
-    font-style: italic;
+  font-family: 'Public Sans';
+  src: url('../public/fonts/PublicSans-Variable-Italic.woff2')
+      format('woff2 supports variations'),
+    url('../public/fonts/PublicSans-Variable-Italic.woff2')
+      format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
 }
 
 body {
-    font-family: Public Sans, Helvetica, sans-serif;
-    font-size: 14px;
+  font-family: Public Sans, Helvetica, sans-serif;
+  font-size: 14px;
 }
