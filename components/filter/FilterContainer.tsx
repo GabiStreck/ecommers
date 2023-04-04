@@ -2,7 +2,7 @@ import { FC, ReactNode, useRef } from 'react';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
 import useFilters from '@/hooks/useFilters';
-import styles from '@/styles/filter/filter.module.css';
+import styles from '@/styles/filter/Filter.module.css';
 
 import IconButton from '../coreUI/IconButton';
 

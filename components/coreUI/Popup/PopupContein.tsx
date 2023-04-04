@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 
-import styles from '@/styles/coreUI/popup.module.css';
+import styles from '@/styles/coreUI/Popup.module.css';
 
 interface Props {
   children: ReactNode;

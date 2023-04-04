@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import styles from '@/styles/sidebar.module.css';
+import styles from '@/styles/Sidebar.module.css';
 
 import Divider from '../coreUI/Divider';
 import FilterCategory from '../filter/FilterCategory';

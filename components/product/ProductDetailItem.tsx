@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
-import styles from '@/styles/product/productDetailItem.module.css';
+import styles from '@/styles/product/ProductDetailItem.module.css';
 import { Product } from '@/types/product';
 
 import Tag from '../coreUI/Tag';

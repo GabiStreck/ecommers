@@ -2,7 +2,7 @@ import React from 'react';
 import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
-import styles from '@/styles/product/productItem.module.css';
+import styles from '@/styles/product/ProductItem.module.css';
 import { Product } from '@/types/product';
 
 import FavIcon from '../favorite/FavIcon';

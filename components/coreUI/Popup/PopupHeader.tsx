@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
-import styles from '@/styles/coreUI/popup.module.css';
+import styles from '@/styles/coreUI/Popup.module.css';
 
 import { ButtonText } from '../Button';
 interface Props {

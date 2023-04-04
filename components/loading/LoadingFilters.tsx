@@ -1,8 +1,8 @@
 import { FC, memo, useId } from 'react';
 
 import { PER_PAGE_FILTER } from '@/constants';
-import styles from '@/styles/filter/filter.module.css';
-import stylesBar from '@/styles/filter/filterBar.module.css';
+import styles from '@/styles/filter/Filter.module.css';
+import stylesBar from '@/styles/filter/FilterBar.module.css';
 
 import { CircleSkeleton, RectangleSkeleton } from './LoadingSkeleton';
 

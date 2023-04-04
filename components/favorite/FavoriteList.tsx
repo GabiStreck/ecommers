@@ -1,5 +1,5 @@
 import useFavorite from '@/hooks/useFavorite';
-import styles from '@/styles/favorite.module.css';
+import styles from '@/styles/Favorite.module.css';
 
 import Divider from '../coreUI/Divider';
 import PopupContein from '../coreUI/Popup/PopupContein';

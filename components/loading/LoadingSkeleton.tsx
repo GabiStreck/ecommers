@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 
-import styles from '@/styles/loading/skeleton.module.css';
+import styles from '@/styles/loading/Skeleton.module.css';
 
 interface PropsRectangule {
   width: string;

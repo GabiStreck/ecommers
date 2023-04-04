@@ -1,7 +1,7 @@
-import { FC, useCallback, useEffect,useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
-import styles from '@/styles/filter/filterPrice.module.css';
+import styles from '@/styles/filter/FilterPrice.module.css';
 
 type MaxMinPrice = {
   min: string;

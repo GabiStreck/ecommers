@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { FILTER_SEARCH } from '@/constants';
 import useDebounce from '@/hooks/useDebounce';
 import useFilters from '@/hooks/useFilters';
-import styles from '@/styles/search.module.css';
+import styles from '@/styles/Search.module.css';
 
 function Search() {
   const [query, setQuery] = useState<string>('');

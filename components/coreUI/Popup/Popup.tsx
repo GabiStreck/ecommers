@@ -2,7 +2,7 @@ import React, { FC, ReactNode, RefObject } from 'react';
 import { XCircleIcon } from '@heroicons/react/24/solid';
 
 import { PopupPosition } from '@/hooks/usePopup';
-import styles from '@/styles/coreUI/popup.module.css';
+import styles from '@/styles/coreUI/Popup.module.css';
 
 import IconButton from '../IconButton';
 

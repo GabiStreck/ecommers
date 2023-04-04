@@ -8,7 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { TagIcon as TagSolidIcon } from '@heroicons/react/24/solid';
 
-import styles from '@/styles/cart.module.css';
+import styles from '@/styles/Cart.module.css';
 import { Product } from '@/types/product';
 
 import IconButton from '../coreUI/IconButton';

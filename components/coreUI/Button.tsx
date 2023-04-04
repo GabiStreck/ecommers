@@ -1,6 +1,6 @@
-import { ButtonHTMLAttributes,FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
-import styles from '@/styles/coreUI/button.module.css';
+import styles from '@/styles/coreUI/Button.module.css';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   label?: string;

@@ -1,6 +1,6 @@
 import { FC, memo, useId } from 'react';
 
-import styles from '@/styles/filter/filteritem.module.css';
+import styles from '@/styles/filter/Filteritem.module.css';
 
 interface Props {
   id: string;

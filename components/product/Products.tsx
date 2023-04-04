@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 
 import useProducts from '@/hooks/useProducts';
-import styles from '@/styles/product/products.module.css';
+import styles from '@/styles/product/Products.module.css';
 
 import { LoadingProducts } from '../loading/LoadingProducts';
 

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import useCart from '@/hooks/useCart';
-import styles from '@/styles/cart.module.css';
+import styles from '@/styles/Cart.module.css';
 
 import { Button } from '../coreUI/Button';
 import Divider from '../coreUI/Divider';
@@ -59,7 +59,7 @@ const Cart = () => {
               </span>
             </span>
 
-            <Button active onClick={() => {}}>
+            <Button active onClick={() => { }}>
               BUY NOW
             </Button>
           </div>

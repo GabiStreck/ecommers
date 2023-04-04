@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import styles from '@/styles/coreUI/avatar.module.css';
+import styles from '@/styles/coreUI/Avatar.module.css';
 
 interface Props {
   src: string;
