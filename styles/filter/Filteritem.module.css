@@ -1,0 +1,42 @@
+.radio_custom {
+  opacity: 0;
+  position: absolute;
+}
+
+.radio_custom,
+.radio_custom_label {
+  display: flex;
+  gap: 0.625rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  color: var(--text-title);
+}
+
+.radio_custom_label:hover {
+  color: var(--main-bg-color-light);
+}
+
+.radio_custom + .radio_custom_label:before {
+  content: '';
+  background: #fff;
+  border: 0.125rem solid #ddd;
+  width: 0.625rem;
+  height: 0.625rem;
+  padding: 0.125rem;
+  margin-right: 0.3125rem;
+  text-align: center;
+}
+
+.radio_custom + .radio_custom_label:before {
+  border-radius: 50%;
+}
+
+.radio_custom:checked + .radio_custom_label:before {
+  background: rgba(var(--main-bg-color-rgb), 0.8);
+}
+
+.radio_custom:focus + .radio_custom_label {
+  outline: none;
+}

@@ -1,0 +1,29 @@
+.header_container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0rem;
+}
+
+.navigation_container {
+  display: flex;
+  gap: 1.875rem;
+}
+
+.navigation_link {
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(153, 153, 153);
+}
+
+.navigation_link_selected {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--main-bg-color);
+}
+
+.actions_container {
+  display: flex;
+  gap: 0.5rem;
+}

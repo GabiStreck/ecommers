@@ -1,0 +1,23 @@
+.filter_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+}
+
+.title_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter_title {
+  color: var(--text-title);
+  font-size: 0.9375rem;
+}
+
+.filter_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 0;
+}

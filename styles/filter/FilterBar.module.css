@@ -1,0 +1,12 @@
+.filterbar_container {
+  display: flex;
+  gap: 0.625rem;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+}
+
+.filterbar_container::-webkit-scrollbar {
+  display: none;
+}
