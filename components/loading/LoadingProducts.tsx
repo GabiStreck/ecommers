@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 
 import { PER_PAGE } from '@/constants';
-import styles from '@/styles/Product/productItem.module.css';
+import styles from '@/styles/Product/ProductItem.module.css';
 
 import { CircleSkeleton, RectangleSkeleton } from './LoadingSkeleton';
 

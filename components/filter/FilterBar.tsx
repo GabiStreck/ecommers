@@ -3,7 +3,7 @@ import React from 'react';
 import { FILTER_TRADEMARK } from '@/constants';
 import useFilters from '@/hooks/useFilters';
 import useTradeMarks from '@/hooks/useTradeMarks';
-import styles from '@/styles/Filter/filterBar.module.css';
+import styles from '@/styles/Filter/FilterBar.module.css';
 import { TradeMark } from '@/types/product';
 
 import { Button } from '../coreUI/Button';
