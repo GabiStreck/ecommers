@@ -13,3 +13,7 @@ export const FILTER_GENRE = 'genre'
 
 export const CART_STORE = 'cart-store'
 export const FAVORITE_STORE = 'favorite-store'
+
+export const NAV_LINKS = ['Home', 'Sale', 'Women', 'Man', 'Kids'];
+
+export const MEDIAQUERY_MOBILE = '(max-width: 768px)'

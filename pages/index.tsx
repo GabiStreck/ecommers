@@ -5,20 +5,17 @@ import Products from '@/components/product/Products';
 import SideBar from '@/components/sideBar';
 
 import styles from '../styles/homePage.module.css';
+import Layout from '@/components/Layout';
 
 export default function Home() {
   return (
-    <main className={styles.main_container}>
-      <SideBar />
-      <section className={styles.main_contein}>
-        <Header />
-        <Divider />
-        <div className={styles.recommended_section}>
-          <h2>Recommended</h2>
-          <FilterBar />
-          <Products />
-        </div>
-      </section>
-    </main>
+    <Layout>
+      <Divider />
+      <div className={styles.recommended_section}>
+        <h2>Recommended</h2>
+        <FilterBar />
+        <Products />
+      </div>
+    </Layout>
   );
 }
