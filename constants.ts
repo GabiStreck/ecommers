@@ -16,4 +16,5 @@ export const FAVORITE_STORE = 'favorite-store'
 
 export const NAV_LINKS = ['Home', 'Sale', 'Women', 'Man', 'Kids'];
 
-export const MEDIAQUERY_MOBILE = '(max-width: 768px)'
+export const MEDIAQUERY_MOBILE = '(max-width: 1024px)'
+export const MEDIAQUERY_SMARTPHONE = '(max-width: 512px)'

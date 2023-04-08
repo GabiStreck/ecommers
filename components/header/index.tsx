@@ -20,36 +20,37 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = (props) => {
   const isMobile = useMediaQuery(MEDIAQUERY_MOBILE)
 
-  if (isMobile) return <HeaderMobile {...props} />
-  return <HeaderDesktop />
+  return (
+    <header className={styles.header_container}>
+      {isMobile ? <HeaderMobile {...props} /> : <HeaderDesktop />}
+    </header>
+  )
 }
 
+const HeaderActions = () => (
+  <div className={styles.actions_container}>
+    <Search />
+    <FavoritePopup />
+    <CartPopup />
+    <Avatar src="https://picsum.photos/30" alt="logo" />
+  </div>
+)
 
 const HeaderMobile: FC<HeaderProps> = ({ onToggleSidebar }) => (
-  <header className={styles.header_container}>
+  <>
     <IconButton action={onToggleSidebar}>
       <Bars4Icon width={20} />
     </IconButton>
-    <div className={styles.actions_container}>
-      <Search />
-      <FavoritePopup />
-      <CartPopup />
-      <Avatar src="https://picsum.photos/30" alt="logo" />
-    </div>
-  </header>
+    <HeaderActions />
+  </>
 )
-
 
 const HeaderDesktop = () => (
-  <header className={styles.header_container}>
+  <>
     <NavBar />
-    <div className={styles.actions_container}>
-      <Search />
-      <FavoritePopup />
-      <CartPopup />
-      <Avatar src="https://picsum.photos/30" alt="logo" />
-    </div>
-  </header>
+    <HeaderActions />
+  </>
 )
+
 
 export default Header;

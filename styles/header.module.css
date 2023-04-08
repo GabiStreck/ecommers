@@ -29,10 +29,13 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .header_container {
     max-width: -webkit-fill-available;
     padding: 1rem 1rem;
+    position: fixed;
+    z-index: 148;
+    background-color: white;
   }
 
   .navigation_container {
