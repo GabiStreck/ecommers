@@ -1,14 +1,14 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, MouseEvent, FC, ReactNode } from 'react';
 import styles from '@/styles/coreUI/Button.module.css';
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   active?: boolean;
-  onClick?: () => void;
+  onClick?: () => void | ((event: MouseEvent<HTMLElement>) => void);
   children?: ReactNode;
-};
+}
 
-export const Button: FC<Props> = ({ label, onClick, active, children }) => {
+export const Button: FC<ButtonProps> = ({ label, onClick, active, children }) => {
   return (
     <button
       className={active ? styles.button_active : styles.button}
@@ -20,7 +20,7 @@ export const Button: FC<Props> = ({ label, onClick, active, children }) => {
   );
 };
 
-export const ButtonText: FC<Props> = ({ label, onClick, children }) => {
+export const ButtonText: FC<ButtonProps> = ({ label, onClick, children }) => {
   return (
     <button className={styles.button_text} onClick={onClick}>
       {label}
