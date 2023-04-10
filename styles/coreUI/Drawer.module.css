@@ -4,9 +4,9 @@
     width: auto;
     height: 100%;
     top: 0;
-    padding: 15px;
+    padding: 0.9375rem;
     background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
     min-width: 18.75rem;
 }

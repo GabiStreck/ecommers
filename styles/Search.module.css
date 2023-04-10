@@ -7,7 +7,7 @@
 
 .search_input {
   border: none;
-  width: 170px;
+  width: 10.625rem;
   height: 100%;
   background-color: transparent;
   outline: none;
@@ -16,7 +16,7 @@
 
 .search_input:focus {
   outline: none;
-  width: 270px;
+  width: 16.875rem;
 }
 
 .search_icon {
@@ -30,12 +30,12 @@
   align-items: center;
   max-width: -webkit-fill-available;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   position: fixed;
   background: white;
   width: 100%;
   top: 0;
-  height: 60px;
+  height: 3.75rem;
   left: 0;
 }
 
@@ -43,7 +43,7 @@
   .search_input {
     width: 100%;
     font-size: initial;
-    height: 50px;
+    height: 3.125rem;
   }
 
   .search_input:focus {

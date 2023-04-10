@@ -1,0 +1,44 @@
+.fabButton {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--main-bg-color);
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0.1875rem 0.625rem rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    z-index: 140;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fabButton:hover {
+    transform: scale(1.1);
+}
+
+.topLeft {
+    top: 1.25rem;
+    left: 1.25rem;
+}
+
+.topRight {
+    top: 1.25rem;
+    right: 1.25rem;
+}
+
+.bottomLeft {
+    bottom: 1.25rem;
+    left: 1.25rem;
+}
+
+.bottomRight {
+    bottom: 1.25rem;
+    right: 1.25rem;
+}
