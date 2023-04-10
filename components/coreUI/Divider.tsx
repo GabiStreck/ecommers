@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-
+import { FC } from 'react';
 import styles from '@/styles/coreUI/Divider.module.css';
+
 interface Props {
   spaceVertical?: number;
   spaceHorizontal?: number;

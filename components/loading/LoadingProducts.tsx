@@ -1,9 +1,8 @@
 import { FC, memo } from 'react';
-
 import { PER_PAGE } from '@/constants';
-import styles from '@/styles/product/ProductItem.module.css';
-
 import { CircleSkeleton, RectangleSkeleton } from './LoadingSkeleton';
+
+import styles from '@/styles/product/ProductItem.module.css';
 
 interface Props {
   quantity?: number;

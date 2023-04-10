@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { FILTER_CATEGORY, PER_PAGE_FILTER } from '@/constants';
 import { client } from '@/graphql-client';
 import { GET_CATEGORIES } from '@/queries/filters';
+import { FILTER_CATEGORY, PER_PAGE_FILTER } from '@/constants';
 import { Category } from '@/types/product';
 
 import useLocalStorage from './useLocalStorage';

@@ -1,10 +1,9 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 
 import useProducts from '@/hooks/useProducts';
-import styles from '@/styles/product/Products.module.css';
-
 import { LoadingProducts } from '../loading/LoadingProducts';
+
+import styles from '@/styles/product/Products.module.css';
 
 const ProductItem = dynamic(() => import('./ProductItem'), {
   loading: () => <LoadingProducts quantity={10} />,

@@ -1,12 +1,12 @@
 import useFavorite from '@/hooks/useFavorite';
-import styles from '@/styles/Favorite.module.css';
 
 import Divider from '../coreUI/Divider';
 import PopupContein from '../coreUI/Popup/PopupContein';
 import PopupHeader from '../coreUI/Popup/PopupHeader';
 import ProductDetailItem from '../product/ProductDetailItem';
-
 import FavIcon from './FavIcon';
+
+import styles from '@/styles/Favorite.module.css';
 
 const FavoriteList = () => {
   const { favorites, handleClearFavorites } = useFavorite();

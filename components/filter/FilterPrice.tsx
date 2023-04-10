@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 
-import { FILTER_PRICE } from '@/constants';
 import useFilters from '@/hooks/useFilters';
 import usePrices from '@/hooks/usePrices';
+import { FILTER_PRICE } from '@/constants';
 import { Filter } from '@/types/filters';
 
 import {
   LoadingFilterItemList,
   LoadingFilterList,
 } from '../loading/LoadingFilters';
-
 import FilterContainer from './FilterContainer';
 import FilterItem from './FilterItem';
 import FilterRangeOfPrice from './FilterRangeOfPrice';
+
 
 const FilterPrice = () => {
   const [query, setQuery] = useState<string>('');

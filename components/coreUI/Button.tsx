@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
-
 import styles from '@/styles/coreUI/Button.module.css';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {

@@ -1,6 +1,5 @@
-import React from 'react';
+import { FC } from 'react';
 import Image from 'next/image';
-
 import styles from '@/styles/coreUI/Avatar.module.css';
 
 interface Props {
@@ -8,7 +7,7 @@ interface Props {
   alt: string;
 }
 
-const Avatar: React.FC<Props> = ({ src, alt }) => {
+const Avatar: FC<Props> = ({ src, alt }) => {
   return (
     <div>
       <Image

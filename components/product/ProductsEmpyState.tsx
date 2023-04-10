@@ -2,6 +2,7 @@ import { memo } from 'react';
 import Image from 'next/image';
 
 import styles from '@/styles/product/Products.module.css';
+
 const ProductsEmpyState = memo(() => {
   return (
     <div className={styles.emptyProduct_container}>

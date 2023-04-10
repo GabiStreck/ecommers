@@ -1,14 +1,15 @@
 import { useMemo } from 'react';
 
 import useCart from '@/hooks/useCart';
-import styles from '@/styles/Cart.module.css';
 
 import { Button } from '../coreUI/Button';
 import Divider from '../coreUI/Divider';
 import PopupContein from '../coreUI/Popup/PopupContein';
 import PopupHeader from '../coreUI/Popup/PopupHeader';
-
 import CartListItem from './CartListItem';
+
+import styles from '@/styles/Cart.module.css';
+
 
 const Cart = () => {
   const {

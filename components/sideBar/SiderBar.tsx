@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import { MEDIAQUERY_MOBILE } from '@/constants';
 import useMediaQuery from '@/hooks/useMediaQuery';
-import { FC } from 'react';
 import NavBar from '../header/NavBar';
 import Drawer from '../coreUI/Drawer';
 import SiderBarContainer from './SiderBarContainer';

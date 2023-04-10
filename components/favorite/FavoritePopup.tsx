@@ -1,8 +1,6 @@
-import { HeartIcon } from '@heroicons/react/24/outline';
 import dynamic from 'next/dynamic';
-
+import { HeartIcon } from '@heroicons/react/24/outline';
 import { usePopup } from '@/hooks/usePopup';
-
 import IconButton from '../coreUI/IconButton';
 import Popup from '../coreUI/Popup/Popup';
 

@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { shallow } from 'zustand/shallow';
 
+import useFilterStore from '@/stores/useFilterStore';
 import {
   FILTER_CATEGORY,
   FILTER_GENRE,
@@ -9,7 +10,6 @@ import {
   FILTER_SEARCH,
   FILTER_TRADEMARK,
 } from '@/constants';
-import useFilterStore from '@/stores/useFilterStore';
 import {
   AddToFilterPayload,
   Filter,

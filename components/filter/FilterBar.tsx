@@ -1,13 +1,11 @@
-import React from 'react';
-
-import { FILTER_TRADEMARK } from '@/constants';
 import useFilters from '@/hooks/useFilters';
 import useTradeMarks from '@/hooks/useTradeMarks';
-import styles from '@/styles/filter/FilterBar.module.css';
+import { FILTER_TRADEMARK } from '@/constants';
 import { TradeMark } from '@/types/product';
-
 import { Button } from '../coreUI/Button';
 import { LoadingFilterBarList } from '../loading/LoadingFilters';
+
+import styles from '@/styles/filter/FilterBar.module.css';
 
 const FilterBar = () => {
   const { tradeMarks, loading } = useTradeMarks();

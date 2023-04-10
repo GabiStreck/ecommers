@@ -1,13 +1,15 @@
 import React from 'react';
-import SideBar from './sideBar/SiderBar';
-import Header from './header';
+import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import useDrawer from '@/hooks/useDrawer';
-import styles from '@/styles/Layout.module.css'
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { MEDIAQUERY_MOBILE } from '@/constants';
+
+import SideBar from './sideBar/SiderBar';
+import Header from './header';
 import FabButton from './coreUI/FabButton';
-import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import SideBarFilters from './sideBar/SideBarFilters';
+
+import styles from '@/styles/Layout.module.css'
 
 interface LayoutProps {
     children: React.ReactNode;

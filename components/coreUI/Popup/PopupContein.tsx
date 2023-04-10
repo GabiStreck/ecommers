@@ -1,5 +1,4 @@
-import React, { FC, ReactNode } from 'react';
-
+import { FC, ReactNode } from 'react';
 import styles from '@/styles/coreUI/Popup.module.css';
 
 interface Props {

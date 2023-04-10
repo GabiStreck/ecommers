@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { TrashIcon } from '@heroicons/react/24/outline';
-
+import { ButtonText } from '../Button';
 import styles from '@/styles/coreUI/Popup.module.css';
 
-import { ButtonText } from '../Button';
 interface Props {
   title: string;
   showButton: boolean;

@@ -1,8 +1,8 @@
-import { startTransition,useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { PER_PAGE } from '@/constants';
 import { client } from '@/graphql-client';
 import { GET_PRODUCTS } from '@/queries/product';
+import { PER_PAGE } from '@/constants';
 import { Product } from '@/types/product';
 
 import useFilters from './useFilters';

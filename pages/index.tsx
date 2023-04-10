@@ -1,9 +1,9 @@
 import Divider from '@/components/coreUI/Divider';
 import FilterBar from '@/components/filter/FilterBar';
 import Products from '@/components/product/Products';
-
-import styles from '../styles/Layout.module.css';
 import Layout from '@/components/Layout';
+
+import styles from '@/styles/Layout.module.css';
 
 export default function Home() {
   return (

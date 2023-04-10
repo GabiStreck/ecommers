@@ -1,11 +1,10 @@
 import { FC } from 'react';
-import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
+import { StarIcon } from '@heroicons/react/24/solid';
+import { Product } from '@/types/product';
+import Tag from '../coreUI/Tag';
 
 import styles from '@/styles/product/ProductDetailItem.module.css';
-import { Product } from '@/types/product';
-
-import Tag from '../coreUI/Tag';
 
 const ProductDetailItem: FC<{ product: Product }> = ({ product }) => {
   return (

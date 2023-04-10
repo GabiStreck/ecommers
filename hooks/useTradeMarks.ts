@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { FILTER_TRADEMARK } from '@/constants';
 import { client } from '@/graphql-client';
 import { GET_TRADEMARKS } from '@/queries/filters';
+import { FILTER_TRADEMARK } from '@/constants';
 import { TradeMark } from '@/types/product';
 
 import useLocalStorage from './useLocalStorage';

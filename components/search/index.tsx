@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
-import styles from '@/styles/Search.module.css';
+import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import useDebounce from '@/hooks/useDebounce';
 import useFilters from '@/hooks/useFilters';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { MEDIAQUERY_SMARTPHONE } from '@/constants';
+
 import SearchInput from './SearchInputProps';
 import IconButton from '../coreUI/IconButton';
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import styles from '@/styles/Search.module.css';
 
 function Search() {
   const [query, setQuery] = useState<string>('');

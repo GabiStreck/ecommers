@@ -8,12 +8,13 @@ import {
 } from '@heroicons/react/24/outline';
 import { TagIcon as TagSolidIcon } from '@heroicons/react/24/solid';
 
-import styles from '@/styles/Cart.module.css';
 import { Product } from '@/types/product';
 
 import IconButton from '../coreUI/IconButton';
 import Tag from '../coreUI/Tag';
 import ProductDetailItem from '../product/ProductDetailItem';
+
+import styles from '@/styles/Cart.module.css';
 
 interface Props {
   product: Product;

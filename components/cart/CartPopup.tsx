@@ -1,7 +1,6 @@
-import { ShoppingBagIcon } from '@heroicons/react/24/outline';
-import dynamic from 'next/dynamic';
-
 import { usePopup } from '@/hooks/usePopup';
+import dynamic from 'next/dynamic';
+import { ShoppingBagIcon } from '@heroicons/react/24/outline';
 
 import IconButton from '../coreUI/IconButton';
 import Popup from '../coreUI/Popup/Popup';

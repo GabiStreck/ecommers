@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { a as Animated, useSpring, config } from '@react-spring/web'
-import styles from '@/styles/coreUI/Drawer.module.css'
-import IconButton from './IconButton';
 import { XCircleIcon } from '@heroicons/react/24/solid';
+import IconButton from './IconButton';
+import styles from '@/styles/coreUI/Drawer.module.css'
 
 
 interface DrawerProps {

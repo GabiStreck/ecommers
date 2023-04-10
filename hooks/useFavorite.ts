@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
 import { shallow } from 'zustand/shallow';
 
-import { FAVORITE_STORE } from '@/constants';
 import useFavoriteStore from '@/stores/useFavoriteStore';
+import { FAVORITE_STORE } from '@/constants';
 import { Product } from '@/types/product';
 
 import useLocalStorage from './useLocalStorage';

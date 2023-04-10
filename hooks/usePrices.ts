@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { FILTER_PRICE } from '@/constants';
 import { client } from '@/graphql-client';
 import { GET_MAYOR_PRICE } from '@/queries/filters';
+import { FILTER_PRICE } from '@/constants';
 
 import useLocalStorage from './useLocalStorage';
 

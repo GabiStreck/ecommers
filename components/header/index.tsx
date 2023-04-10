@@ -1,17 +1,16 @@
-
-
-import styles from '@/styles/Header.module.css';
+import { FC } from 'react';
+import { Bars4Icon } from '@heroicons/react/24/outline';
+import useMediaQuery from '@/hooks/useMediaQuery';
+import { MEDIAQUERY_MOBILE } from '@/constants';
 
 import CartPopup from '../cart/CartPopup';
 import Avatar from '../coreUI/Avatar';
 import FavoritePopup from '../favorite/FavoritePopup';
 import Search from '../search';
 import NavBar from './NavBar';
-import useMediaQuery from '@/hooks/useMediaQuery';
-import { MEDIAQUERY_MOBILE } from '@/constants';
 import IconButton from '../coreUI/IconButton';
-import { Bars4Icon } from '@heroicons/react/24/outline';
-import { FC } from 'react';
+
+import styles from '@/styles/Header.module.css';
 
 interface HeaderProps {
   onToggleSidebar: () => void;

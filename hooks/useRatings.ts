@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { FILTER_RATING } from '@/constants';
 import { client } from '@/graphql-client';
 import { GET_RATINGS } from '@/queries/filters';
+import { FILTER_RATING } from '@/constants';
 
 import useLocalStorage from './useLocalStorage';
 

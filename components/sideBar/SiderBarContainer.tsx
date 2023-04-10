@@ -1,6 +1,6 @@
+import { FC, ReactNode } from 'react';
 import Image from 'next/image';
 import styles from '@/styles/Sidebar.module.css';
-import { FC, ReactNode } from 'react';
 
 interface PropsSideBarContainer {
     children: ReactNode;

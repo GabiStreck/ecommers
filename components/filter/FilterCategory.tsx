@@ -1,6 +1,5 @@
-import { FILTER_CATEGORY } from '@/constants';
 import useCategories from '@/hooks/useCategories';
-
+import { FILTER_CATEGORY } from '@/constants';
 import { ButtonText } from '../coreUI/Button';
 import Filter from '../filter/Filter';
 
