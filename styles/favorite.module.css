@@ -5,3 +5,9 @@
   justify-content: space-between;
   gap: 1rem;
 }
+
+@media (max-width: 414px) {
+  .favorites_item {
+    gap: 0.5rem;
+  }
+}

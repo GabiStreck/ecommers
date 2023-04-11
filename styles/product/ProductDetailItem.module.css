@@ -28,6 +28,7 @@
   flex-direction: column;
   width: 100%;
   gap: 0.25rem;
+  max-width: calc(100% - 60px);
 }
 
 .productDescription_container {
@@ -44,4 +45,16 @@
   display: flex;
   align-items: center;
   gap: 0.3125rem;
+}
+
+@media (max-width: 414px) {
+  .productInfo_container {
+    gap: 0.3rem;
+  }
+
+  .productDescription_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
 }

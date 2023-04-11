@@ -11,7 +11,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  gap: 1.25rem;
 }
 
 .tags_container {
@@ -33,7 +32,7 @@
   border: 0.0625rem solid rgba(224, 224, 224, 0.3);
 }
 
-.quantity_container > p {
+.quantity_container>p {
   height: 100%;
   display: flex;
   align-items: center;
@@ -82,7 +81,7 @@
   padding: 0.625rem 1.25rem;
 }
 
-.totalAmount_container > span {
+.totalAmount_container>span {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -96,4 +95,15 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: black;
+}
+
+
+@media (max-width: 414px) {
+  .productCart_price {
+    gap: 0;
+  }
+
+  .productCart_oldPrice {
+    gap: 0;
+  }
 }

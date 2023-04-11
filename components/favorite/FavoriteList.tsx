@@ -20,11 +20,14 @@ const FavoriteList = () => {
       />
       <Divider spaceVertical={15} />
       <PopupContein>
-        {favorites?.map((product) => (
-          <li key={`fav-${product.id}`} className={styles.favorites_item}>
-            <ProductDetailItem product={product} />
-            <FavIcon product={product} />
-          </li>
+        {favorites?.map(product => (
+          <div key={`fav-${product.id}`} >
+            <li className={styles.favorites_item}>
+              <ProductDetailItem product={product} />
+              <FavIcon product={product} />
+            </li>
+            <Divider />
+          </div>
         ))}
       </PopupContein>
     </>

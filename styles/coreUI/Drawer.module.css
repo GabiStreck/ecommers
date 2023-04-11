@@ -9,6 +9,7 @@
     box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
     min-width: 18.75rem;
+    overflow-x: hidden;
 }
 
 .backdrop {
@@ -37,13 +38,17 @@
 
 .top {
     top: 0;
+    left: 0;
     width: 100%;
+    max-width: -webkit-fill-available;
     height: auto;
     transform: translateY(100%);
 }
 
 .bottom {
+    max-width: -webkit-fill-available;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: auto;
     transform: translateY(100%);
@@ -53,4 +58,10 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+
+@media (max-width: 414px) {
+    .drawer {
+        padding: 0rem;
+    }
 }

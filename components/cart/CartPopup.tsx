@@ -11,8 +11,9 @@ const Cart = dynamic(() => import('./Cart'), {
 });
 
 const CartPopup = () => {
-  const { isOpen, togglePopup, popupRef, buttonRef, popupPosition } =
-    usePopup();
+  const { isOpen, togglePopup, popupRef,
+    buttonRef, popupPosition
+  } = usePopup();
 
   return (
     <>

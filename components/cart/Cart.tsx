@@ -37,16 +37,20 @@ const Cart = () => {
       />
       <Divider spaceVertical={15} />
       <PopupContein>
-        {cart?.map((cartItem) => (
-          <CartListItem
-            {...cartItem}
-            key={`cartItem-${cartItem.product.id}`}
-            onAddToCart={() => handleAddToCart(cartItem)}
-            onRemoveItemFromCart={() =>
-              handleRemoveItemFromCart(cartItem.product.id)
-            }
-            onRemoveAllItem={() => handleRemoveFromCart(cartItem.product.id)}
-          />
+        {cart?.map((cartItem, index) => (
+
+          <div key={`cartItem-${cartItem.product.id}`}>
+            <CartListItem
+              {...cartItem}
+              onAddToCart={() => handleAddToCart(cartItem)}
+              onRemoveItemFromCart={() =>
+                handleRemoveItemFromCart(cartItem.product.id)
+              }
+              onRemoveAllItem={() => handleRemoveFromCart(cartItem.product.id)}
+            />
+            {index !== (cart.length - 1) ? <Divider /> : null}
+          </div>
+
         ))}
       </PopupContein>
       {cart?.length ? (
