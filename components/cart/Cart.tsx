@@ -23,7 +23,9 @@ const Cart = () => {
   const totalAmount = useMemo(() => {
     return cart?.reduce(
       (total, item) =>
-        total + item.quantity * (item.product.price - item.product.price * 0.1),
+        total + item.quantity * (
+          item.product.price - item.product.price * (item.product.discount / 100)
+        ),
       0
     );
   }, [cart]);

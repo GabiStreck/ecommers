@@ -1,7 +1,7 @@
 import Divider from '@/components/coreUI/Divider';
 import FilterBar from '@/components/filter/FilterBar';
 import Products from '@/components/product/Products';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout';
 
 import styles from '@/styles/Layout.module.css';
 

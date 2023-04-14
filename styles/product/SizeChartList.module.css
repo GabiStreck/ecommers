@@ -1,0 +1,32 @@
+.sizechart_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sizechart_list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1rem;
+    height: 2rem;
+}
+
+.sizechart_selected,
+.sizechart_item {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-title);
+    transition: font-size ease-in-out 100ms;
+}
+
+.sizechart_selected {
+    font-size: 1.3rem;
+    color: var(--main-bg-color);
+}
+
+
+.sizechart_item:hover {
+    font-size: 1.1rem;
+    color: var(--main-bg-color-light);
+}

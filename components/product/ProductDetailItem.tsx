@@ -5,6 +5,7 @@ import { Product } from '@/types/product';
 import Tag from '../coreUI/Tag';
 
 import styles from '@/styles/product/ProductDetailItem.module.css';
+import { ColorList } from './ColorList';
 
 const ProductDetailItem: FC<{ product: Product }> = ({ product }) => {
   return (
@@ -26,20 +27,7 @@ const ProductDetailItem: FC<{ product: Product }> = ({ product }) => {
         </div>
 
         <div className={styles.productDescription_container}>
-          <span className={styles.color_container}>
-            Color:{' '}
-            {product.color.map((color, index) => (
-              <div
-                key={`color-${product.id}-${index}`}
-                style={{
-                  width: 10,
-                  height: 10,
-                  backgroundColor: color.hex,
-                  borderRadius: 20,
-                }}
-              />
-            ))}
-          </span>
+          <ColorList colors={product.color} />
           <span>Genre: {product.genre}</span>
           <span>
             {product.tradeMark.name || '-'} / {product.category.name}

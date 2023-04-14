@@ -8,10 +8,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = ({ label, onClick, active, children }) => {
+export const Button: FC<ButtonProps> = ({ label, onClick, active, children, disabled = false }) => {
   return (
     <button
-      className={active ? styles.button_active : styles.button}
+      disabled={disabled}
+      className={`${active ? styles.button_active : styles.button} ${disabled && styles.disabled}`}
       onClick={onClick}
     >
       {label}
@@ -20,9 +21,13 @@ export const Button: FC<ButtonProps> = ({ label, onClick, active, children }) =>
   );
 };
 
-export const ButtonText: FC<ButtonProps> = ({ label, onClick, children }) => {
+export const ButtonText: FC<ButtonProps> = ({ label, onClick, children, disabled = false }) => {
   return (
-    <button className={styles.button_text} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={disabled ? styles.text_disabled : styles.button_text}
+      onClick={onClick}
+    >
       {label}
       {children}
     </button>

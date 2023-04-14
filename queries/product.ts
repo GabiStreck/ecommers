@@ -21,13 +21,19 @@ export const GET_PRODUCTS = gql`
         hex
         css
       }
+      discount
+      stocks {
+        id 
+        sizeChart
+        stock
+      }
     }
   }
 `;
 
 export const GET_PRODUCT = gql`
-  query Products($id: ID) {
-    products(where: { id: $id }) {
+  query Product($id: ID) {
+    product(where: { id: $id }) {
       id
       title
       price
@@ -45,6 +51,12 @@ export const GET_PRODUCT = gql`
       color {
         hex
         css
+      }
+      discount
+      stocks {
+        id 
+        sizeChart
+        stock
       }
     }
   }

@@ -6,8 +6,16 @@ export type Product = {
   image: Image;
   color: Color[];
   genre: string;
+  discount: number;
   tradeMark: TradeMark;
   category: Category;
+  stocks: Stock[];
+};
+
+export type Stock = {
+  id: string;
+  sizeChart: number;
+  stock: number;
 };
 
 export type Image = {

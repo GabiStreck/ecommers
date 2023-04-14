@@ -12,6 +12,7 @@ type QueryResult = {
   products: Product[];
 };
 
+
 const useProducts = (limit = PER_PAGE) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

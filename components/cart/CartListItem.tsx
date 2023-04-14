@@ -41,7 +41,7 @@ const CartListItem: FC<Props> = ({
             <BuildingStorefrontIcon width={15} /> Free Delivery
           </Tag>
           <Tag color="#e7b3ff" colorText="#7708b7" borderRadius={4}>
-            <TagIcon width={15} /> 10% Discount
+            <TagIcon width={15} /> {product.discount}% Discount
           </Tag>
         </div>
         <div className={styles.quantity_container}>
@@ -59,7 +59,7 @@ const CartListItem: FC<Props> = ({
             <TagSolidIcon width={14} />
           </p>
           <p className={styles.productCart_price}>
-            ${(quantity * (product.price - product.price * 0.1)).toFixed(2)}
+            ${(quantity * (product.price - (product.price * product.discount / 100))).toFixed(2)}
             <IconButton action={onRemoveAllItem}>
               <TrashIcon width={14} color="#d80000" />
             </IconButton>

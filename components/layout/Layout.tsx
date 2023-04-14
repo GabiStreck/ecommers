@@ -4,10 +4,10 @@ import useDrawer from '@/hooks/useDrawer';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { MEDIAQUERY_MOBILE } from '@/constants';
 
-import SideBar from './sideBar/SiderBar';
-import Header from './header';
-import FabButton from './coreUI/FabButton';
-import SideBarFilters from './sideBar/SideBarFilters';
+import SideBar from '../sideBar/SiderBar';
+import Header from '../header/Header';
+import FabButton from '../coreUI/FabButton';
+import SideBarFilters from '../sideBar/SideBarFilters';
 
 import styles from '@/styles/Layout.module.css'
 

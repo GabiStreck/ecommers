@@ -1,6 +1,7 @@
 .button,
 .button_active,
-.button_text {
+.button_text,
+.disabled {
   padding: 0.5rem 0.9375rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -29,4 +30,37 @@
 
 .button_text:hover {
   color: var(--main-bg-color-light);
+}
+
+.disabled.button_active {
+  background-color: var(--text-secondary-color);
+  color: white;
+  border: none;
+}
+
+.disabled.button {
+  color: var(--text-secondary-color);
+  border: 0.125rem solid var(--text-secondary-color);
+}
+
+.text_disabled {
+  color: var(--text-secondary-color);
+}
+
+.disabled,
+.text_disabled {
+  cursor: not-allowed;
+}
+
+.disabled.button:hover {
+  color: var(--text-secondary-color);
+  border: 0.125rem solid var(--text-secondary-color);
+  cursor: not-allowed;
+}
+
+.disabled.button_active:hover {
+  background-color: var(--text-secondary-color);
+  border: nene;
+  color: white;
+  cursor: not-allowed;
 }

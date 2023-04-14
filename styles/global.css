@@ -89,3 +89,9 @@ body {
   font-family: Public Sans, Helvetica, sans-serif;
   font-size: 0.875rem;
 }
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: initial;
+}
